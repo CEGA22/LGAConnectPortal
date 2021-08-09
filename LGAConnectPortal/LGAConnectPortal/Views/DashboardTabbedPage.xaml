@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="LGAConnectPortal.Views.DashboardTabbedPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:pages="clr-namespace:LGAConnectPortal.Views"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    NavigationPage.HasNavigationBar="False"
+    Style="{StaticResource TabStyle}">
+    <!--  Pages can be added as references or inline  -->
+
+
+
+    <TabbedPage.Children>
+        <pages:Home Title="Home" />
+        <pages:ViewGrades Title="View Grades" />
+        <pages:ClassSchedule Title="Class Schedule" />
+        <pages:StudentBalance Title="Student Balance" />
+        <pages:AssignmentandActivities Title="Assignment &amp; Activities" />
+    </TabbedPage.Children>
+
+</TabbedPage>

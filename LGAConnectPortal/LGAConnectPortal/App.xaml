@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="LGAConnectPortal.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="WitchHaze">#FFF68F</Color>
+            <Color x:Key="AliceBlue">#e4f1fe</Color>
+            <Color x:Key="LightGray">#C4C4C4</Color>
+            <Color x:Key="Pomegranate">#f03434</Color>
+            <Color x:Key="SaffronMango">#fabe58</Color>
+            <Color x:Key="DeepSkyBlue">#19b5fe</Color>
+            <Color x:Key="LightBlue">#21D1FF</Color>
+            <Color x:Key="Pink">#E94D90</Color>
+            <Color x:Key="BrightTurquoise">#29F1C3</Color>
+            <Color x:Key="Studio">#8E44AD</Color>
+            <Color x:Key="Spray">#81CFE0</Color>
+            <Color x:Key="DarkGray">#4A4A4A</Color>
+            <Color x:Key="MainBackgroundTheme">#A2DBFA</Color>
+            <Color x:Key="White">#FFFFFF</Color>
+
+
+            <Style x:Key="TabStyle" TargetType="TabbedPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource White}"/>
+                <Setter Property="BarTextColor" Value="{StaticResource DarkGray}"/>
+                <Setter Property="SelectedTabColor" Value="{StaticResource WitchHaze}"/>
+                <Setter Property="UnselectedTabColor" Value="{StaticResource DarkGray}"/>
+            </Style>
+
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+                <Setter Property="FontFamily" Value="MM" />
+                <Setter Property="FontSize" Value="24" />
+            </Style>
+
+            <Style x:Key="DashboardCard" TargetType="Frame">
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="HeightRequest" Value="200" />
+                <Setter Property="MinimumWidthRequest" Value="396" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+            </Style>
+
+            <Style x:Key="EntryFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="Margin" Value="25,10,25,0" />
+            </Style>
+
+            <Style x:Key="MenuFrame" TargetType="Frame">
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="MinimumWidthRequest" Value="361" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LGAConnectPortal.Views.NewsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Margin="25,15,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Grid.Column="0"
+                                FontFamily="MM"
+                                FontSize="24"
+                                HorizontalOptions="StartAndExpand"
+                                Text="News Title"
+                                TextColor="{StaticResource White}" />
+
+                            <BoxView
+                                Grid.Column="1"
+                                Margin="0,5,20,0"
+                                BackgroundColor="Gray"
+                                CornerRadius="5"
+                                HeightRequest="50"
+                                WidthRequest="50" />
+
+                        </Grid>
+                    </StackLayout>
+
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="15,35,15,0"
+                        BackgroundColor="Gray"
+                        CornerRadius="10"
+                        HeightRequest="247"
+                        WidthRequest="362" />
+
+                    <Label
+                        Grid.Row="3"
+                        Margin="25,25,25,25"
+                        FontFamily="MM"
+                        FontSize="12"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum est tellus integer diam vel pharetra neque. Habitasse faucibus mauris, tincidunt magnis viverra. Lobortis proin cras id a scelerisque quam pellentesque. Sed integer lectus bibendum tellus. Quis suspendisse habitant sit sollicitudin cum. Varius sit diam odio nisl sed elit id vitae. Sed non scelerisque bibendum et porttitor platea. Purus sit volutpat aliquet in. Duis ac etiam mauris, blandit libero. Leo sit tellus natoque ut ut a. Varius tristique erat et massa ultrices. Quis iaculis quam ut habitant massa, sit lorem ut dignissim. Nunc duis sit nunc ut semper. Vel, diam et felis, laoreet risus sagittis, curabitur. Pellentesque id porttitor leo rhoncus. Maecenas nisi sit leo faucibus vel pharetra proin. Sed varius vitae at porta. Non fermentum, non ullamcorper at integer risus, donec. Duis posuere a commodo, tincidunt in morbi sagittis consectetur tincidunt. Sed ac aliquet non amet parturient quam. Scelerisque quisque urna netus aliquet donec. Tempor cursus nisi vestibulum mauris. Malesuada malesuada consectetur gravida pharetra, gravida nullam purus in quisque. Amet, diam a, eu aliquam porttitor ultrices. Sed amet, justo pretium malesuada et urna pharetra. Sit ut mattis aliquam metus purus porttitor tortor. Urna, venenatis eleifend et purus, viverra mi justo id felis. A odio sit egestas donec ornare. Pharetra ac amet felis praesent feugiat id. In enim diam nibh diam justo, ut ipsum. Et aliquet nunc, tellus aliquam proin fermentum. Sagittis, tortor urna placerat fringilla enim pellentesque. Eleifend imperdiet nulla enim lectus vestibulum quis facilisis ut. Nisl massa adipiscing fusce elementum risus suspendisse rhoncus. Faucibus malesuada amet diam, facilisis adipiscing eu phasellus cursus. Duis elementum id habitant euismod. Tempor neque ac rhoncus ultrices nulla elit. A mauris iaculis at fringilla purus ipsum. Morbi rhoncus ullamcorper sed a risus ut purus commodo. Amet ut facilisis et diam. Quis sodales molestie et at habitasse arcu facilisis turpis. Egestas rhoncus neque orci, tincidunt enim amet, nisl nulla sociis. Lorem ipsum, et eleifend dolor. Sagittis ac, id sodales interdum pellentesque diam cursus aliquet semper. Ultrices ac tincidunt iaculis vitae tincidunt aliquam iaculis. Hendrerit gravida interdum sagittis risus quisque egestas dictum gravida. Sem sed auctor amet, suscipit. Fames elementum adipiscing arcu urna ultrices aliquam neque. Ullamcorper suspendisse quis lectus lobortis. Id gravida sed laoreet ante sed. Nulla in consequat arcu, velit etiam nulla integer nullam. Ullamcorper risus porta amet eget pulvinar vestibulum egestas. Suspendisse sagittis iaculis orci mi morbi faucibus vel libero massa. Integer pulvinar nunc arcu egestas urna morbi. Amet luctus quisque sed consequat. Quis blandit velit amet aliquam morbi odio viverra leo. Faucibus urna tincidunt sagittis magna potenti pulvinar tempor, egestas. Arcu, sociis leo egestas sit cursus tristique ac. Nec ac tellus ullamcorper volutpat cursus. Vehicula quisque urna mauris sit diam. Vitae enim suspendisse nec, leo venenatis mus vestibulum neque quam. Tellus pellentesque habitasse pellentesque ultricies elit lacus urna ornare ultrices. Augue montes, in malesuada mi non feugiat vitae et. Amet velit ullamcorper in turpis commodo fermentum, nullam ornare. Tortor velit eget eleifend euismod vitae nullam augue laoreet massa. Eleifend pulvinar tristique lectus quis sodales sed volutpat, et. Sagittis bibendum quis mauris, tincidunt. Dolor vestibulum magna eleifend pellentesque duis sit quam. Condimentum venenatis faucibus proin mi amet, augue. Imperdiet nullam mollis mauris at et enim pharetra tempor phasellus. Pellentesque bibendum at dignissim et morbi eget sit dignissim. Felis et cursus congue diam sagittis ullamcorper cursus massa. Molestie nam elementum sodales egestas mi congue nulla sagittis. Ipsum tellus volutpat rutrum cursus odio tortor etiam duis. Feugiat amet ornare praesent imperdiet enim. Fames ornare velit nisi, nunc in tellus auctor rhoncus non. Dictum nisi, id platea massa. Fermentum morbi non at nisl mi faucibus. Magna faucibus imperdiet id netus. Dictum volutpat mi nullam condimentum at. Non netus suspendisse elit vestibulum interdum. Quam magna egestas vehicula ridiculus sit urna. Donec nunc amet nec in semper sit metus, aliquet diam. Malesuada sagittis cursus massa quisque pulvinar egestas. Cursus dignissim libero varius malesuada suspendisse auctor praesent tellus. Integer suscipit orci mauris imperdiet id facilisi. Est orci diam eros adipiscing quis duis tempor. Bibendum morbi proin malesuada commodo quis ultricies quis pellentesque. Porta gravida vitae, nisi, dui."
+                        TextColor="{StaticResource Black}" />
+
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

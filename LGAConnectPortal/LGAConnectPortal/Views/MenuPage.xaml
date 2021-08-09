@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LGAConnectPortal.Views.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LGAConnectPortal.ViewModels"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <local:MenuPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Margin="15,15,0,0"
+                        Style="{StaticResource TitleLabel}"
+                        Text="Menu" />
+
+                    <BoxView
+                        Grid.Row="1"
+                        Margin="15,15,15,0"
+                        BackgroundColor="{StaticResource WitchHaze}"
+                        CornerRadius="10"
+                        HeightRequest="5" />
+
+                    <Frame
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="15,15,15,0"
+                        Style="{StaticResource MenuFrame}">
+                        <StackLayout>
+                            <Label
+                                FontFamily="MM"
+                                Text="Account Settings"
+                                TextColor="{StaticResource Black}" />
+
+                            <Label
+                                FontFamily="MM"
+                                Text="Account Settings"
+                                TextColor="{StaticResource Black}" />
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding _accountSettings}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Margin="15,15,15,0"
+                        Style="{StaticResource MenuFrame}">
+                        <StackLayout>
+                            <Label
+                                FontFamily="MM"
+                                Text="Account Settings"
+                                TextColor="{StaticResource Black}" />
+
+                            <Label
+                                FontFamily="MM"
+                                Text="Account Settings"
+                                TextColor="{StaticResource Black}" />
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="15,15,15,0"
+                        Style="{StaticResource MenuFrame}">
+                        <StackLayout>
+                            <Label
+                                FontFamily="MM"
+                                Text="Account Settings"
+                                TextColor="{StaticResource Black}" />
+
+                            <Label
+                                FontFamily="MM"
+                                Text="Account Settings"
+                                TextColor="{StaticResource Black}" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
