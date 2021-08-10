@@ -1,12 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LGAConnectPortal.Views.AssignmentandActivities">
+<ContentPage
+    x:Class="LGAConnectPortal.Views.AssignmentandActivities"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Margin="15,15,0,0"
+                    Style="{StaticResource TitleLabel}"
+                    Text="Assignment &amp;&#10;Activites" />
+
+                <BoxView
+                    Grid.Row="1"
+                    Margin="15,15,10,0"
+                    BackgroundColor="{StaticResource WitchHaze}"
+                    HeightRequest="3" />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
