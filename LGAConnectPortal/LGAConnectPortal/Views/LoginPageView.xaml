@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LGAConnectPortal.Views.LoginPageView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Margin="20,150,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource TitleLabel}"
+                    Text="LGA Portal" />
+
+                <StackLayout Grid.Row="1">
+                    <Label
+                        Margin="30,100,25,0"
+                        FontFamily="MM"
+                        FontSize="18"
+                        Text="Student ID"
+                        TextColor="{StaticResource White}" />
+
+                    <Frame Style="{StaticResource EntryFrame}">
+                        <Entry
+                            FontFamily="MM"
+                            FontSize="16"
+                            Placeholder="Student ID" />
+                    </Frame>
+
+                    <Label
+                        Margin="30,10,25,0"
+                        FontFamily="MM"
+                        FontSize="18"
+                        Text="Student ID"
+                        TextColor="{StaticResource White}" />
+
+                    <Frame Style="{StaticResource EntryFrame}">
+                        <Entry
+                            FontFamily="MM"
+                            FontSize="16"
+                            IsPassword="True"
+                            Placeholder="***************" />
+                    </Frame>
+                </StackLayout>
+
+                <Button
+                    Grid.Row="2"
+                    Margin="25,25,25,25"
+                    BackgroundColor="{StaticResource WitchHaze}"
+                    CornerRadius="10"
+                    FontFamily="MM"
+                    FontSize="14"
+                    Text="Save Changes"
+                    TextColor="{StaticResource Black}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
