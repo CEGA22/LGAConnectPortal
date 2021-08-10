@@ -11,7 +11,7 @@ namespace LGAConnectPortal
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPageView());
+            MainPage = new NavigationPage(new DashboardTabbedPage());
         }
 
         protected override void OnStart()
