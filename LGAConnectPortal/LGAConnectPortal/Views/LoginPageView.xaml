@@ -58,7 +58,7 @@
                     CornerRadius="10"
                     FontFamily="MM"
                     FontSize="14"
-                    Text="Save Changes"
+                    Text="Sign in"
                     TextColor="{StaticResource Black}"/>
             </Grid>
         </StackLayout>
