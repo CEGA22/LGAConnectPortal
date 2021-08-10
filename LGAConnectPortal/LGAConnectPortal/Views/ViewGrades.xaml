@@ -5,11 +5,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="View Grades Page"
-                VerticalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Label Margin="15,15,0,0"
+                    Grid.Row="0"
+                    Style="{StaticResource TitleLabel}"
+                    Text="Your Grades" />
+                
+                
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
