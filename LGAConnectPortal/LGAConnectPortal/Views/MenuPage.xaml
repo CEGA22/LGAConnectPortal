@@ -3,6 +3,7 @@
     x:Class="LGAConnectPortal.Views.MenuPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helper="clr-namespace:LGAConnectPortal.Fonts"
     xmlns:local="clr-namespace:LGAConnectPortal.ViewModels"
     NavigationPage.HasNavigationBar="False">
 
@@ -41,13 +42,12 @@
                         Grid.Column="0"
                         Margin="15,15,15,0"
                         Style="{StaticResource MenuFrame}">
-                        <StackLayout>
+                        <StackLayout Orientation="Horizontal">
                             <Label
-                                FontFamily="MM"
-                                Text="Account Settings"
-                                TextColor="{StaticResource Black}" />
-
-                            <Label
+                                FontFamily="{StaticResource LGAConnectFont}"
+                                FontSize="32"
+                                Text="{x:Static helper:LGAConnectFont.account}" TextColor="{StaticResource DeepSkyBlue}"/>
+                            <Label Margin="10,5,0,0"
                                 FontFamily="MM"
                                 Text="Account Settings"
                                 TextColor="{StaticResource Black}" />
@@ -62,15 +62,15 @@
                         Grid.Column="0"
                         Margin="15,15,15,0"
                         Style="{StaticResource MenuFrame}">
-                        <StackLayout>
+                        <StackLayout Orientation="Horizontal">
                             <Label
-                                FontFamily="MM"
-                                Text="Account Settings"
-                                TextColor="{StaticResource Black}" />
+                                FontFamily="{StaticResource LGAConnectFont}"
+                                FontSize="32"
+                                Text="{x:Static helper:LGAConnectFont.about}" TextColor="{StaticResource Spray}"/>
 
-                            <Label
+                            <Label Margin="10,5,0,0"
                                 FontFamily="MM"
-                                Text="Account Settings"
+                                Text="About"
                                 TextColor="{StaticResource Black}" />
                         </StackLayout>
 
@@ -81,16 +81,34 @@
                         Grid.Column="0"
                         Margin="15,15,15,0"
                         Style="{StaticResource MenuFrame}">
-                        <StackLayout>
+                        <StackLayout Orientation="Horizontal">
                             <Label
-                                FontFamily="MM"
-                                Text="Account Settings"
-                                TextColor="{StaticResource Black}" />
+                                FontFamily="{StaticResource LGAConnectFont}"
+                                FontSize="32"
+                                Text="{x:Static helper:LGAConnectFont.FileRequest}" TextColor="{StaticResource SaffronMango}"/>
 
-                            <Label
+                            <Label Margin="10,5,0,0"
                                 FontFamily="MM"
-                                Text="Account Settings"
+                                Text="File Request"
                                 TextColor="{StaticResource Black}" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Margin="15,15,15,0"
+                        Style="{StaticResource MenuFrame}">
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                FontFamily="{StaticResource LGAConnectFont}"
+                                FontSize="32"
+                                Text="{x:Static helper:LGAConnectFont.Logout}"/>
+
+                            <Label Margin="10,5,0,0"
+                                FontFamily="MM"
+                                Text="Log out"
+                                TextColor="{StaticResource Black}"  />
                         </StackLayout>
                     </Frame>
                 </Grid>

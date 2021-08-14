@@ -133,4 +133,7 @@
       <Name>LGAConnectPortal</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LGASCHOOLLOGO.png" />
+  </ItemGroup>
 </Project>
