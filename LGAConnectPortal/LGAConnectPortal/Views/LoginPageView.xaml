@@ -3,7 +3,13 @@
     x:Class="LGAConnectPortal.Views.LoginPageView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LGAConnectPortal.ViewModels"
     NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <local:LoginPageViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
             <Grid>
@@ -13,16 +19,19 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <Label
+
+                <Image
                     Grid.Row="0"
-                    Margin="20,150,0,0"
-                    HorizontalOptions="CenterAndExpand"
-                    Style="{StaticResource TitleLabel}"
-                    Text="LGA Portal" />
+                    Margin="0,50,0,40"
+                    HeightRequest="200"
+                    Source="LGASCHOOLLOGO.png"
+                    WidthRequest="100"
+                    MinimumHeightRequest="200"
+                    MinimumWidthRequest="100"/>
 
                 <StackLayout Grid.Row="1">
                     <Label
-                        Margin="30,100,25,0"
+                        Margin="30,0,25,0"
                         FontFamily="MM"
                         FontSize="18"
                         Text="Student ID"
@@ -39,7 +48,7 @@
                         Margin="30,10,25,0"
                         FontFamily="MM"
                         FontSize="18"
-                        Text="Student ID"
+                        Text="Password"
                         TextColor="{StaticResource White}" />
 
                     <Frame Style="{StaticResource EntryFrame}">
@@ -55,12 +64,15 @@
                     Grid.Row="2"
                     Margin="25,25,25,25"
                     BackgroundColor="{StaticResource WitchHaze}"
+                    Command="{Binding _HomePage}"
                     CornerRadius="10"
                     FontFamily="MM"
                     FontSize="14"
                     Text="Sign in"
-                    TextColor="{StaticResource Black}"/>
+                    TextColor="{StaticResource Black}" />
             </Grid>
         </StackLayout>
+
+
     </ContentPage.Content>
 </ContentPage>

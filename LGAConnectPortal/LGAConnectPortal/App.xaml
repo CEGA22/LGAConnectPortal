@@ -5,6 +5,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Application.Resources>
         <ResourceDictionary>
+            
+            <!--SvgIcons-->
+
+            <OnPlatform x:Key="LGAConnectFont" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="LGAConnectFont" />
+                <On Platform="Android" Value="LGAConnectPortal.ttf#Regular" />
+            </OnPlatform>
+
+            <!--  Colors  -->
             <Color x:Key="Black">#000000</Color>
             <Color x:Key="WitchHaze">#FFF68F</Color>
             <Color x:Key="AliceBlue">#e4f1fe</Color>
@@ -21,12 +30,12 @@
             <Color x:Key="MainBackgroundTheme">#A2DBFA</Color>
             <Color x:Key="White">#FFFFFF</Color>
 
-
+            <!--  Styles  -->
             <Style x:Key="TabStyle" TargetType="TabbedPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource White}"/>
-                <Setter Property="BarTextColor" Value="{StaticResource DarkGray}"/>
-                <Setter Property="SelectedTabColor" Value="{StaticResource WitchHaze}"/>
-                <Setter Property="UnselectedTabColor" Value="{StaticResource DarkGray}"/>
+                <Setter Property="BarBackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="BarTextColor" Value="{StaticResource DarkGray}" />
+                <Setter Property="SelectedTabColor" Value="{StaticResource WitchHaze}" />
+                <Setter Property="UnselectedTabColor" Value="{StaticResource DarkGray}" />
             </Style>
 
             <Style x:Key="TitleLabel" TargetType="Label">
@@ -54,7 +63,7 @@
 
             <Style x:Key="MenuFrame" TargetType="Frame">
                 <Setter Property="HasShadow" Value="True" />
-                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="HeightRequest" Value="32" />
                 <Setter Property="MinimumWidthRequest" Value="361" />
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="BackgroundColor" Value="{StaticResource White}" />

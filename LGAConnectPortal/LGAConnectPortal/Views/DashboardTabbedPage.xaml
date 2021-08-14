@@ -13,7 +13,7 @@
 
 
     <TabbedPage.Children>
-        <pages:Home Title="Home" />
+        <pages:Home Title="Home"/>
         <pages:ViewGrades Title="View Grades" />
         <pages:ClassSchedule Title="Class Schedule" />
         <pages:StudentBalance Title="Student Balance" />
