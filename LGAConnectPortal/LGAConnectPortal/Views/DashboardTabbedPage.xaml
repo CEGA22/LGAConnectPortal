@@ -13,11 +13,11 @@
 
 
     <TabbedPage.Children>
-        <pages:Home Title="Home"/>
-        <pages:ViewGrades Title="View Grades" />
-        <pages:ClassSchedule Title="Class Schedule" />
-        <pages:StudentBalance Title="Student Balance" />
-        <pages:AssignmentandActivities Title="Assignment &amp; Activities" />
+        <pages:Home Title="Home" IconImageSource="Home.png" />
+        <pages:ViewGrades Title="Grades" IconImageSource="Grades.png" />
+        <pages:ClassSchedule Title="Schedule" IconImageSource="ClassSchedule.png" />
+        <pages:StudentBalance Title="Balance" IconImageSource="StudentBalance.png" />
+        <pages:AssignmentandActivities Title="Activities" IconImageSource="AssignmentandActivities.png" />
     </TabbedPage.Children>
 
 </TabbedPage>
