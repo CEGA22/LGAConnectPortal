@@ -5,8 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Application.Resources>
         <ResourceDictionary>
-            
-            <!--SvgIcons-->
+
+            <!--  SvgIcons  -->
 
             <OnPlatform x:Key="LGAConnectFont" x:TypeArguments="x:String">
                 <On Platform="iOS" Value="LGAConnectFont" />
@@ -47,7 +47,9 @@
             <Style x:Key="DashboardCard" TargetType="Frame">
                 <Setter Property="HasShadow" Value="True" />
                 <Setter Property="HeightRequest" Value="200" />
-                <Setter Property="MinimumWidthRequest" Value="396" />
+                <Setter Property="WidthRequest" Value="396" />
+                <Setter Property="MinimumWidthRequest" Value="300" />
+                <Setter Property="MinimumHeightRequest" Value="200" />
                 <Setter Property="CornerRadius" Value="20" />
                 <Setter Property="Padding" Value="0" />
                 <Setter Property="BackgroundColor" Value="{StaticResource White}" />
@@ -64,7 +66,9 @@
             <Style x:Key="MenuFrame" TargetType="Frame">
                 <Setter Property="HasShadow" Value="True" />
                 <Setter Property="HeightRequest" Value="32" />
+                <Setter Property="WidthRequest" Value="361"/>
                 <Setter Property="MinimumWidthRequest" Value="361" />
+                <Setter Property="MinimumHeightRequest" Value="32"/>
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="BackgroundColor" Value="{StaticResource White}" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
