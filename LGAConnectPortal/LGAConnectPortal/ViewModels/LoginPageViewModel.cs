@@ -18,7 +18,8 @@ namespace LGAConnectPortal.ViewModels
 
         void GotoHomePage()
         {
-            Application.Current.MainPage.Navigation.PushAsync(new DashboardTabbedPage());
+            //Application.Current.MainPage.Navigation.PushAsync(new DashboardTabbedPage());
+            Application.Current.MainPage = new NavigationPage(new DashboardTabbedPage());
         }
     }
 }
