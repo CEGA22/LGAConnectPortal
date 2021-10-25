@@ -28,32 +28,17 @@
                     <StackLayout
                         Grid.Row="0"
                         Grid.Column="0"
-                        Margin="15,15,0,0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
+                        Margin="15,15,15,0">
+                        <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
+                            <Label Style="{StaticResource TitleLabel}" Text="Good Day,&#10;User" />
 
-                            <Label
-                                Grid.Column="0"
-                                HorizontalOptions="StartAndExpand"
-                                Style="{StaticResource TitleLabel}"
-                                Text="Good Day,&#10;User" />
-
-                            <BoxView
-                                Grid.Column="1"
-                                Margin="0,5,20,0"
-                                BackgroundColor="Gray"
+                            <ImageButton
+                                Aspect="AspectFill"
+                                BackgroundColor="{StaticResource DarkGray}"
                                 CornerRadius="5"
-                                HeightRequest="30"
-                                WidthRequest="50">
-                                <BoxView.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding _accountCommand}" />
-                                </BoxView.GestureRecognizers>
-                            </BoxView>
-
-                        </Grid>
+                                HeightRequest="50"                            
+                                WidthRequest="50" Command="{Binding _accountCommand}"  />
+                        </FlexLayout>
                     </StackLayout>
 
                     <Frame

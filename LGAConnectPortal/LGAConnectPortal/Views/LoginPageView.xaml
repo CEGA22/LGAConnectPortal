@@ -24,10 +24,10 @@
                     Grid.Row="0"
                     Margin="0,50,0,40"
                     HeightRequest="200"
-                    Source="LGASCHOOLLOGO.png"
-                    WidthRequest="100"
                     MinimumHeightRequest="200"
-                    MinimumWidthRequest="100"/>
+                    MinimumWidthRequest="100"
+                    Source="LGASCHOOLLOGO.png"
+                    WidthRequest="100" />
 
                 <StackLayout Grid.Row="1">
                     <Label
