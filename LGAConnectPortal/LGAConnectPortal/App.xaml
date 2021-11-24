@@ -73,9 +73,6 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource White}" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
             </Style>
-
-
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>

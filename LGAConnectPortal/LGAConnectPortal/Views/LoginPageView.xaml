@@ -23,25 +23,24 @@
                 <Image
                     Grid.Row="0"
                     Margin="0,50,0,40"
-                    HeightRequest="200"
-                    MinimumHeightRequest="200"
-                    MinimumWidthRequest="100"
-                    Source="LGASCHOOLLOGO.png"
-                    WidthRequest="100" />
+                    HeightRequest="170"
+                    Source="LGASCHOOLLOGO.png" />
 
                 <StackLayout Grid.Row="1">
                     <Label
                         Margin="30,0,25,0"
                         FontFamily="MM"
                         FontSize="18"
-                        Text="Student ID"
+                        Text="Student Number"
                         TextColor="{StaticResource White}" />
 
                     <Frame Style="{StaticResource EntryFrame}">
                         <Entry
+                            x:Name="txtStudentNumber"
                             FontFamily="MM"
                             FontSize="16"
-                            Placeholder="Student ID" />
+                            Placeholder="Student Number"
+                            Text="{Binding StudentID}" />
                     </Frame>
 
                     <Label
@@ -53,10 +52,12 @@
 
                     <Frame Style="{StaticResource EntryFrame}">
                         <Entry
+                            x:Name="txtPassword"
                             FontFamily="MM"
                             FontSize="16"
                             IsPassword="True"
-                            Placeholder="***************" />
+                            Placeholder="***************"
+                            Text="{Binding password}" />
                     </Frame>
                 </StackLayout>
 

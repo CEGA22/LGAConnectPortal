@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -14,23 +15,24 @@ namespace LGAConnectPortal.ViewModels
 
         }
 
-        public ICommand _accountCommand => new Command(GotoMenuPage);
-        public ICommand _latestNewsandAnnouncement => new Command(GotoLatestNewsandAnnouncementPage);
-        public ICommand _viewGrades => new Command(GotoViewGrades);
+        public ICommand _accountCommand => new Command(async () => await GotoMenuPage());
+        public ICommand _latestNewsandAnnouncement => new Command(async () => await GotoLatestNewsandAnnouncementPage());
+        public ICommand _viewGrades => new Command(async () => await GotoViewGrades());
 
-        void GotoMenuPage()
+        async Task GotoMenuPage()
         {
-            Application.Current.MainPage.Navigation.PushAsync(new MenuPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new MenuPage());
+            //Application.Current.MainPage.Navigation.(new MenuPage());
         }
 
-        void GotoLatestNewsandAnnouncementPage()
+        async Task GotoLatestNewsandAnnouncementPage()
         {
-            Application.Current.MainPage.Navigation.PushAsync(new LatestNewsandAnnouncementPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new LatestNewsandAnnouncementPage());
         }
 
-        void GotoViewGrades()
+        async Task GotoViewGrades()
         {
-            Application.Current.MainPage.Navigation.PushAsync(new ViewGrades());
+            await Application.Current.MainPage.Navigation.PushAsync(new ViewGrades());
         }
 
 

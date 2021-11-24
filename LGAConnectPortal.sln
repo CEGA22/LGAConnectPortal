@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGAConnectPortal.Android", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGAConnectPortal.iOS", "LGAConnectPortal\LGAConnectPortal.iOS\LGAConnectPortal.iOS.csproj", "{D366F1CD-0767-4A4E-8479-8DACB317F83F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGAConnectPortal", "LGAConnectPortal\LGAConnectPortal\LGAConnectPortal.csproj", "{6151B2E8-26CE-4DA2-8054-50853C3AB924}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGAConnectPortal", "LGAConnectPortal\LGAConnectPortal\LGAConnectPortal.csproj", "{6151B2E8-26CE-4DA2-8054-50853C3AB924}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

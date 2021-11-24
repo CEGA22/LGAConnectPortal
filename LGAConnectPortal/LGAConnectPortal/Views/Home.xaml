@@ -30,7 +30,7 @@
                         Grid.Column="0"
                         Margin="15,15,15,0">
                         <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
-                            <Label Style="{StaticResource TitleLabel}" Text="Good Day,&#10;User" />
+                            <Label x:Name="txtGreetings" Style="{StaticResource TitleLabel}"/>
 
                             <ImageButton
                                 Aspect="AspectFill"

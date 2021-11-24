@@ -1,5 +1,6 @@
 ﻿using LGAConnectPortal.Views;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +11,17 @@ namespace LGAConnectPortal
         public App()
         {
             InitializeComponent();
+            var ID = Preferences.Get("ID", 0);          
+            if (ID != 0)
+            {
+                MainPage = new NavigationPage(new DashboardTabbedPage());
+            }
 
-            MainPage = new NavigationPage(new LoginPageView());
+            else
+            {
+                MainPage = new NavigationPage(new LoginPageView());
+            }
+            
         }
 
         protected override void OnStart()
