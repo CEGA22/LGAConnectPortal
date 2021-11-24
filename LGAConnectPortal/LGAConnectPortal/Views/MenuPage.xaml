@@ -46,8 +46,10 @@
                             <Label
                                 FontFamily="{StaticResource LGAConnectFont}"
                                 FontSize="32"
-                                Text="{x:Static helper:LGAConnectFont.account}" TextColor="{StaticResource DeepSkyBlue}"/>
-                            <Label Margin="10,5,0,0"
+                                Text="{x:Static helper:LGAConnectFont.account}"
+                                TextColor="{StaticResource DeepSkyBlue}" />
+                            <Label
+                                Margin="10,5,0,0"
                                 FontFamily="MM"
                                 Text="Account Settings"
                                 TextColor="{StaticResource Black}" />
@@ -66,9 +68,11 @@
                             <Label
                                 FontFamily="{StaticResource LGAConnectFont}"
                                 FontSize="32"
-                                Text="{x:Static helper:LGAConnectFont.about}" TextColor="{StaticResource Spray}"/>
+                                Text="{x:Static helper:LGAConnectFont.about}"
+                                TextColor="{StaticResource Spray}" />
 
-                            <Label Margin="10,5,0,0"
+                            <Label
+                                Margin="10,5,0,0"
                                 FontFamily="MM"
                                 Text="About"
                                 TextColor="{StaticResource Black}" />
@@ -85,9 +89,11 @@
                             <Label
                                 FontFamily="{StaticResource LGAConnectFont}"
                                 FontSize="32"
-                                Text="{x:Static helper:LGAConnectFont.FileRequest}" TextColor="{StaticResource SaffronMango}"/>
+                                Text="{x:Static helper:LGAConnectFont.FileRequest}"
+                                TextColor="{StaticResource SaffronMango}" />
 
-                            <Label Margin="10,5,0,0"
+                            <Label
+                                Margin="10,5,0,0"
                                 FontFamily="MM"
                                 Text="File Request"
                                 TextColor="{StaticResource Black}" />
@@ -103,13 +109,17 @@
                             <Label
                                 FontFamily="{StaticResource LGAConnectFont}"
                                 FontSize="32"
-                                Text="{x:Static helper:LGAConnectFont.Logout}"/>
+                                Text="{x:Static helper:LGAConnectFont.Logout}" />
 
-                            <Label Margin="10,5,0,0"
+                            <Label
+                                Margin="10,5,0,0"
                                 FontFamily="MM"
                                 Text="Log out"
-                                TextColor="{StaticResource Black}"  />
+                                TextColor="{StaticResource Black}" />
                         </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding _logout}" />
+                        </Frame.GestureRecognizers>
                     </Frame>
                 </Grid>
             </StackLayout>

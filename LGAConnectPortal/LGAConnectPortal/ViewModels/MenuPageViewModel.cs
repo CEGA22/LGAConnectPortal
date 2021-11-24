@@ -5,33 +5,35 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace LGAConnectPortal.ViewModels
 {
-    public class MenuPageViewModel : INotifyPropertyChanged
-    {       
-        public event PropertyChangedEventHandler PropertyChanged;
-       
+    public class MenuPageViewModel 
+    {            
         public MenuPageViewModel()
+        {                   
+
+        }
+
+        
+        public ICommand _accountSettings => new Command(async () => await GotoAccountSettings());
+        public ICommand _logout => new Command(async () => await LogoutAccount());
+
+        async Task GotoAccountSettings()
         {
+            await Application.Current.MainPage.Navigation.PushAsync(new AccountSettingsPage());
             
-            //this.accountcommand = new Command(
-            //    async () =>
-            //    {
-            //        await Application.Current.MainPage.Navigation.PushAsync(new AccountSettingsPage());
-            //    });
-
         }
 
-        public ICommand _accountSettings => new Command(GotoAccountSettings);
-
-        void GotoAccountSettings()
-        {
-            Application.Current.MainPage.Navigation.PushAsync(new AccountSettingsPage());
+        async Task LogoutAccount()
+        {            
+            Preferences.Clear();
+            Application.Current.MainPage = new NavigationPage(new LoginPageView());
         }
 
-     
+
 
     }
 }
