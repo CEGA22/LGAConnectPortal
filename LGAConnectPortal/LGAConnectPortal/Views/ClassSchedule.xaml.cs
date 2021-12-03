@@ -15,30 +15,36 @@ namespace LGAConnectPortal.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ClassSchedule : ContentPage
     {
-        public ObservableRangeCollection<ClassSchedule> classscheduleWeek { get; }
+        
         public ClassSchedule()
         {
             InitializeComponent();
-            classscheduleWeek = new ObservableRangeCollection<ClassSchedule>();
+            DateTime currentDateTime = DateTime.Now;
+            selectedWeekDay.Text = currentDateTime.DayOfWeek.ToString();
+            LoadData();
         }
 
-      
-
-        private void Label_Focused(object sender, FocusEventArgs e)
+        public async void LoadData()
         {
-
+            DateTime currentDateTime = DateTime.Now;
+            selectedWeekDay.Text = currentDateTime.DayOfWeek.ToString();
+            var todaysweek = currentDateTime.DayOfWeek.ToString();
+            if (BindingContext is ClassScheduleViewModel vm)
+            {
+                
+                await vm.DisplayClassSchedule(todaysweek.ToString());
+                lblNoRecords.IsVisible = !vm.classschedule.Any();
+                lblNoRecords.IsVisible = !vm.classschedule.Any();
+            }
         }
-
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            
-                Weekdays.Focus();                                   
+        {            
+                Weekdays.Focus();           
         }
-
-        
+       
         private async void Weekdays_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
             try
             {
                 Picker picker = sender as Picker;
@@ -49,16 +55,14 @@ namespace LGAConnectPortal.Views
                 {
                     await vm.DisplayClassSchedule(selectedItem.ToString());
                     lblNoRecords.IsVisible = !vm.classschedule.Any();
+                    lblNoRecords.IsVisible = !vm.classschedule.Any();                   
                 }
             }
             catch (Exception x)
             {
 
                 throw;
-            }
-
-            
-
+            }            
         }
     }
 }

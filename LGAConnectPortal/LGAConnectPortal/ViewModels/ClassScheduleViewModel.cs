@@ -28,9 +28,7 @@ namespace LGAConnectPortal.ViewModels
             "#9f5afd",
             "#674172"
         };
-
-
-              
+            
         public bool IsNoRecordToShow { get; set; }
         private Random _random = new Random();
         public int RandomNumber(int min, int max)
@@ -55,10 +53,10 @@ namespace LGAConnectPortal.ViewModels
 
         private async void PreparePageBindings() 
         {
-            await DisplayClassSchedule();
-            await RefreshClassSchedule();
+            await DisplayClassSchedule();           
         }
 
+        DateTime currentDateTime = DateTime.Now;
         public async Task DisplayClassSchedule(string weekDay = "Entire Week")
         {        
             var ID = Preferences.Get("ID", 0);
@@ -97,8 +95,9 @@ namespace LGAConnectPortal.ViewModels
             {
                 var filteredScheduleList = classScheduleList.Where(x => x.WeekDay == weekDay);
                 classschedule.AddRange(filteredScheduleList);
+                IsBusy = false;
             }
-            IsBusy = false;
+            
         }      
     }
 }

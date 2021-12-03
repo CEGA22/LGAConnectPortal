@@ -17,6 +17,22 @@ namespace LGAConnectPortal.Views
         {
             InitializeComponent();
             txtGreetings.Text = "Good Day,\n" + Preferences.Get("Firstname", string.Empty);
-        }        
+            DateTime currentDateTime = DateTime.Now;
+            TodayClasses.Text = currentDateTime.DayOfWeek.ToString();
+            LoadData();
+        }
+
+        public async Task LoadData()
+        {
+            DateTime currentDateTime = DateTime.Now;          
+            var todaysweek = currentDateTime.DayOfWeek.ToString();
+            if (BindingContext is HomeViewModel vm)
+            {
+
+                await vm.DisplayClassSchedule(todaysweek.ToString());
+                lblNoRecords.IsVisible = !vm.classschedule.Any();
+                lblNoRecords.IsVisible = !vm.classschedule.Any();
+            }
+        }      
     }
 }

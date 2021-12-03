@@ -77,7 +77,9 @@
                                 Text="About"
                                 TextColor="{StaticResource Black}" />
                         </StackLayout>
-
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding _About}" />
+                        </Frame.GestureRecognizers>
                     </Frame>
 
                     <Frame
