@@ -75,73 +75,94 @@
                         ItemsSource="{Binding classschedule}"
                         RefreshCommand="{Binding RefreshCommand}"
                         RefreshControlColor="{StaticResource DeepSkyBlue}"
+                        SelectionMode="None"
                         SeparatorVisibility="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        Orientation="Horizontal"
+                                        VerticalOptions="Center">
 
-                                    <StackLayout>
-                                        <Frame
-                                            Margin="20,0,20,15"
-                                            BackgroundColor="{Binding TileColor}"
-                                            CornerRadius="10"
-                                            HasShadow="True"
-                                            HeightRequest="40">
-                                            <StackLayout Orientation="Horizontal">
+                                        <StackLayout>
+                                            <Frame
+                                                Margin="25,0,25,10"
+                                                BackgroundColor="{Binding TileColor}"
+                                                CornerRadius="10"
+                                                HasShadow="True"
+                                                HeightRequest="80"
+                                                WidthRequest="300">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image
+                                                        Margin="0,0,15,0"
+                                                        Source="Subject.png"
+                                                        WidthRequest="40" />
+                                                    <StackLayout>
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Image
+                                                                Margin="0,-5,0,0"
+                                                                Source="Time.png"
+                                                                WidthRequest="15" />
+                                                            <Label
+                                                                Margin="0,-6,0,0"
+                                                                FontFamily="MBold"
+                                                                FontSize="14"
+                                                                LineBreakMode="WordWrap"
+                                                                Text="{Binding Time}"
+                                                                TextColor="{StaticResource White}" />
+                                                        </StackLayout>
 
-                                                <Image
-                                                    Margin="0,0,5,0"
-                                                    HeightRequest="45"
-                                                    Source="Subject.png"
-                                                    WidthRequest="35" />
-                                                <StackLayout Margin="0,-7,0,0">
-                                                    <Label
-                                                        FontFamily="MB"
-                                                        FontSize="17"
-                                                        LineBreakMode="WordWrap"
-                                                        Text="{Binding Subject}"
-                                                        TextColor="{StaticResource White}" />
+                                                        <Label
+                                                            FontFamily="MB"
+                                                            FontSize="16"
+                                                            LineBreakMode="WordWrap"
+                                                            Text="{Binding Subject}"
+                                                            TextColor="{StaticResource White}" />
 
-                                                    <Label
-                                                        FontFamily="MM"
-                                                        FontSize="11"
-                                                        LineBreakMode="WordWrap"
-                                                        Text="{Binding Fullname}"
-                                                        TextColor="{StaticResource White}" />
+                                                        <Label
+                                                            FontFamily="MM"
+                                                            FontSize="12"
+                                                            LineBreakMode="WordWrap"
+                                                            Text="{Binding Fullname}"
+                                                            TextColor="{StaticResource White}" />
+
+
+
+                                                        <Label
+                                                            x:Name="lblWeekday"
+                                                            FontFamily="MM"
+                                                            FontSize="14"
+                                                            HorizontalOptions="Start"
+                                                            IsVisible="true"
+                                                            LineBreakMode="WordWrap"
+                                                            Text="{Binding WeekDay}"
+                                                            TextColor="{StaticResource White}"
+                                                            VerticalOptions="Center" />
+                                                    </StackLayout>
                                                 </StackLayout>
-                                                <StackLayout>
-                                                    <Label
-                                                        Margin="55,-10,0,0"
-                                                        FontFamily="MM"
-                                                        FontSize="14"
-                                                        LineBreakMode="WordWrap"
-                                                        Text="{Binding WeekDay}"
-                                                        TextColor="{StaticResource White}" />
-
-                                                    <Label
-                                                        Margin="55,5,0,0"
-                                                        FontFamily="MM"
-                                                        FontSize="14"
-                                                        LineBreakMode="WordWrap"
-                                                        Text="{Binding Time}"
-                                                        TextColor="{StaticResource White}" />
-                                                </StackLayout>
-
-                                            </StackLayout>
-                                        </Frame>
+                                            </Frame>
+                                        </StackLayout>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <Label
+                    <StackLayout
                         x:Name="lblNoRecords"
                         Grid.Row="2"
-                        IsVisible="False"
                         Margin="0,150,0,0"
                         HorizontalOptions="Center"
-                        Text="Nonoy"
-                        VerticalOptions="Start" />
+                        IsVisible="False"
+                        VerticalOptions="Start">
+                        <Image Source="FreeSchedule.png" WidthRequest="50" />
+                        <Label
+                            FontFamily="MM"
+                            FontSize="14"
+                            Text="No Schedule For Today"
+                            TextColor="{StaticResource White}" />
+                    </StackLayout>
+
                 </Grid>
             </StackLayout>
         </ScrollView>
