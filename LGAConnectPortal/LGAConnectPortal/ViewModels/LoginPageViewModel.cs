@@ -40,7 +40,7 @@ namespace LGAConnectPortal.ViewModels
 
             if (result.IsSuccess)
             {
-                PersistentData(result.ID, result.Firstname, result.Lastname, result.Fullname);
+                PersistentData(result.ID, result.Firstname, result.Lastname, result.Fullname, result.StudentProfile);
                 Application.Current.MainPage = new NavigationPage(new DashboardTabbedPage());
 
             }
@@ -50,12 +50,14 @@ namespace LGAConnectPortal.ViewModels
             }
         }
 
-        public void PersistentData(int ID, string firstname, string lastname, string fullname)
+        public void PersistentData(int ID, string firstname, string lastname, string fullname, byte[] StudentProfile)
         {
+            string studentprofile = System.Convert.ToBase64String(StudentProfile);
             Preferences.Set("ID", ID);
             Preferences.Set("Firstname", firstname);
             Preferences.Set("Lastname", lastname);
             Preferences.Set("Fullname", fullname);
+            Preferences.Set("StudentProfile", studentprofile);
         }
     }
 }
