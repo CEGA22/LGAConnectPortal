@@ -29,10 +29,21 @@
                         Text="Account&#10;Settings"
                         TextColor="{StaticResource White}" />
 
-                    <BoxView
+                    <!--<BoxView
                         Grid.Row="1"
                         Margin="0,35,0,0"
                         BackgroundColor="Gray"
+                        CornerRadius="20"
+                        HeightRequest="136"
+                        HorizontalOptions="CenterAndExpand"
+                        WidthRequest="136" />-->
+
+                    <ImageButton
+                        x:Name="btnStudentProfile"
+                        Grid.Row="1"
+                        Margin="0,35,0,0"
+                        Aspect="AspectFill"
+                        BackgroundColor="{StaticResource DarkGray}"
                         CornerRadius="20"
                         HeightRequest="136"
                         HorizontalOptions="CenterAndExpand"

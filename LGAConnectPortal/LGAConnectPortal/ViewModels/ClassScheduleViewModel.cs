@@ -36,7 +36,7 @@ namespace LGAConnectPortal.ViewModels
             return _random.Next(min, max);
         }
         public ObservableRangeCollection<ClassSchedule> classschedule { get; }
-        public ObservableRangeCollection<ClassSchedule> classscheduleWeek { get; }
+        //public ObservableRangeCollection<ClassSchedule> classscheduleWeek { get; }
         public AsyncCommand DisplayCommand { get; set; }
         public AsyncCommand DisplayWeekCommand { get; set; }
         public AsyncCommand RefreshCommand { get; set; }      
@@ -44,7 +44,7 @@ namespace LGAConnectPortal.ViewModels
         {
             
             classschedule = new ObservableRangeCollection<ClassSchedule>();
-            classscheduleWeek = new ObservableRangeCollection<ClassSchedule>();
+            //classscheduleWeek = new ObservableRangeCollection<ClassSchedule>();
             //DisplayCommand = new AsyncCommand(DisplayClassSchedule);
             //DisplayWeekCommand = new AsyncCommand(DisplayClassScheduleByWeek);
             //RefreshCommand = new AsyncCommand(RefreshClassSchedule);
@@ -56,48 +56,43 @@ namespace LGAConnectPortal.ViewModels
             await DisplayClassSchedule();           
         }
 
-        DateTime currentDateTime = DateTime.Now;
+        //DateTime currentDateTime = DateTime.UtcNow;
+        List<ClassSchedule> classSchedulesList = new List<ClassSchedule>();
         public async Task DisplayClassSchedule(string weekDay = "Entire Week")
         {        
             var ID = Preferences.Get("ID", 0);
             var classscheduleservice = await ClassScheduleService.GetClassScheduleDetailsStudent(ID);
-            var classScheduleList = classscheduleservice.ToList();
-            classScheduleList.ForEach(x => { x.TileColor = Color.FromHex(tileColors[RandomNumber(0, 10)]); });
+            classSchedulesList = classscheduleservice.ToList();
+            classSchedulesList.ForEach(x => { x.TileColor = Color.FromHex(tileColors[RandomNumber(0, 10)]); });
             classschedule.Clear();
 
             if (weekDay == "Entire Week")
             {
-                classschedule.AddRange(classScheduleList);
+                classschedule.AddRange(classSchedulesList);
             }
             else
             {
-                var filteredScheduleList = classScheduleList.Where(x => x.WeekDay == weekDay);
+                var filteredScheduleList = classSchedulesList.Where(x => x.WeekDay == weekDay);
                 classschedule.AddRange(filteredScheduleList);
             } 
         }
 
-        public async Task RefreshClassSchedule(string weekDay = "Entire Week")
-        {
-            var ID = Preferences.Get("ID", 0);
-            IsBusy = true;
-            await Task.Delay(2000);
-            classschedule.Clear();
-            var classscheduleservice = await ClassScheduleService.GetClassScheduleDetailsStudent(ID);
-            var classScheduleList = classscheduleservice.ToList();
-            classScheduleList.ForEach(x => { x.TileColor = Color.FromHex(tileColors[RandomNumber(0, 10)]); });
-            classschedule.Clear();
-
-            if (weekDay == "Entire Week")
-            {
-                classschedule.AddRange(classScheduleList);
-            }
-            else
-            {
-                var filteredScheduleList = classScheduleList.Where(x => x.WeekDay == weekDay);
-                classschedule.AddRange(filteredScheduleList);
-                IsBusy = false;
-            }
-            
-        }      
+        //public async Task RefreshClassSchedule(string weekDay = "Entire Week")
+        //{
+        //    var ID = Preferences.Get("ID", 0);
+        //    IsBusy = true;
+        //    await Task.Delay(2000);
+        //    classschedule.Clear();
+        //    if (weekDay == "Entire Week")
+        //    {
+        //        classschedule.AddRange(classSchedulesList);
+        //    }
+        //    else
+        //    {
+        //        var filteredScheduleList = classSchedulesList.Where(x => x.WeekDay == weekDay);
+        //        classschedule.AddRange(filteredScheduleList);
+        //    }
+        //    IsBusy = false;
+        //}      
     }
 }

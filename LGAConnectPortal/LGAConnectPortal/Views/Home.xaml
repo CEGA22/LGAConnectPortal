@@ -32,7 +32,7 @@
                         <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
                             <Label x:Name="txtGreetings" Style="{StaticResource TitleLabel}" />
 
-                            <ImageButton
+                            <ImageButton x:Name="btnStudentProfile"
                                 Aspect="AspectFill"
                                 BackgroundColor="{StaticResource DarkGray}"
                                 Command="{Binding AccountCommand}"

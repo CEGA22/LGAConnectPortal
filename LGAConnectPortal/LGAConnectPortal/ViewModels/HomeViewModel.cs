@@ -68,11 +68,11 @@ namespace LGAConnectPortal.ViewModels
             classschedule.Clear();
 
             if (weekDay == "Entire Week")
-            {
+            {             
                 classschedule.AddRange(classScheduleList);
             }
             else
-            {
+            {             
                 var filteredScheduleList = classScheduleList.Where(x => x.WeekDay == weekDay);               
                 classschedule.AddRange(filteredScheduleList);
             }
