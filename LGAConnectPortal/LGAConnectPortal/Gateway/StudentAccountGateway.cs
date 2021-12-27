@@ -11,7 +11,7 @@ namespace LGAConnectPortal.Gateway
 {
    public class StudentAccountGateway
     {
-        static string BaseUrl = "http://ceejaygabrang-001-site1.itempurl.com/api/lga/student";
+        static string BaseUrl = "http://cegagabrang-001-site1.btempurl.com/api/lga/student";
 
         public async Task<IEnumerable<StudentAccount>> GetStudentAccount()
         {
@@ -27,6 +27,12 @@ namespace LGAConnectPortal.Gateway
             {
                 return Enumerable.Empty<StudentAccount>();
             }
+        }
+
+        public async Task<string> UpdateStudentPassword(StudentAccount request)
+        {
+            Uri url = new Uri(BaseUrl + "/update_student_information");
+            return await WebMethods.MakePostRequest(url, request);
         }
     }
 }

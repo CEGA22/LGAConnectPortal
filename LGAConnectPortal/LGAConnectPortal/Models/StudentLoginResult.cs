@@ -14,6 +14,14 @@ namespace LGAConnectPortal.Models
 
         public string Lastname { get; set; }
 
+        public string Middlename { get; set; }
+
+        public string Password { get; set; }
+
+        public string GradeLevel { get; set; }
+
+        public string SectionName { get; set; }
+
         public string Fullname { get; set; }
 
         public byte[] StudentProfile { get; set; }

@@ -29,7 +29,10 @@
                     <ListView
                         Grid.Row="1"
                         HasUnevenRows="True"
+                        IsPullToRefreshEnabled="True"
+                        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                         ItemsSource="{Binding StudentGrades}"
+                        RefreshCommand="{Binding RefreshCommand}"
                         SeparatorVisibility="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>

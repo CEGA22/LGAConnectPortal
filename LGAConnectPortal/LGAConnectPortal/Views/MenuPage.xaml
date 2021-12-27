@@ -82,7 +82,7 @@
                         </Frame.GestureRecognizers>
                     </Frame>
 
-                    <Frame
+                    <!--<Frame
                         Grid.Row="4"
                         Grid.Column="0"
                         Margin="15,15,15,0"
@@ -100,10 +100,10 @@
                                 Text="File Request"
                                 TextColor="{StaticResource Black}" />
                         </StackLayout>
-                    </Frame>
+                    </Frame>-->
 
                     <Frame
-                        Grid.Row="5"
+                        Grid.Row="4"
                         Grid.Column="0"
                         Margin="15,15,15,0"
                         Style="{StaticResource MenuFrame}">

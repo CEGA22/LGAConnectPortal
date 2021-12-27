@@ -42,13 +42,13 @@ namespace LGAConnectPortal.ViewModels
         public AsyncCommand RefreshCommand { get; set; }      
         public ClassScheduleViewModel()
         {
-            
+            PreparePageBindings();
             classschedule = new ObservableRangeCollection<ClassSchedule>();
             //classscheduleWeek = new ObservableRangeCollection<ClassSchedule>();
             //DisplayCommand = new AsyncCommand(DisplayClassSchedule);
             //DisplayWeekCommand = new AsyncCommand(DisplayClassScheduleByWeek);
             //RefreshCommand = new AsyncCommand(RefreshClassSchedule);
-            PreparePageBindings();
+            
         }
 
         private async void PreparePageBindings() 

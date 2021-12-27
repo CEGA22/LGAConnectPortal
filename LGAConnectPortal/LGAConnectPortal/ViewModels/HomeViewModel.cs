@@ -38,6 +38,7 @@ namespace LGAConnectPortal.ViewModels
         }
 
         public ObservableRangeCollection<Models.ClassSchedule> classschedule { get; }
+        public ObservableRangeCollection<NewsAndAnnouncements> newsAndAnnouncements { get; }
         //public ICommand _accountCommand => new Command(async () => await GotoMenuPage());
         //public ICommand _latestNewsandAnnouncement => new Command(async () => await GotoLatestNewsandAnnouncementPage());
         //public ICommand _viewGrades => new Command(async () => await GotoViewGrades());
@@ -47,16 +48,18 @@ namespace LGAConnectPortal.ViewModels
 
         public HomeViewModel()
         {
+            PreparePageBindings();
             classschedule = new ObservableRangeCollection<Models.ClassSchedule>();
+            newsAndAnnouncements = new ObservableRangeCollection<NewsAndAnnouncements>();
             AccountCommand = new AsyncCommand(GotoMenuPage);
             NewsCommand = new AsyncCommand(GotoLatestNewsandAnnouncementPage);
-            GradesCommand = new AsyncCommand(GotoViewGrades);
-            DisplayClassSchedule();
+            GradesCommand = new AsyncCommand(GotoViewGrades);        
         }
 
         private async void PreparePageBindings()
         {
             await DisplayClassSchedule();
+            await DisplayNewsAndAnnouncements();
         }
 
         public async Task DisplayClassSchedule(string weekDay = "Entire Week")
@@ -75,6 +78,29 @@ namespace LGAConnectPortal.ViewModels
             {             
                 var filteredScheduleList = classScheduleList.Where(x => x.WeekDay == weekDay);               
                 classschedule.AddRange(filteredScheduleList);
+            }
+        }
+
+        public async Task DisplayNewsAndAnnouncements()
+        {
+            try
+            {
+                var result = await NewsAndAnnouncementsService.GetNewsAndAnnouncements();
+
+                var latestnewsandannouncementsOrder = result.OrderBy(x => x.DateCreated);
+                var latestnewsandannouncement = latestnewsandannouncementsOrder.FirstOrDefault();
+
+                //var contentphoto = newsAndAnnouncements.SelectMany(x => x.ContentPhoto).ToArray();
+                //string converphototostring = System.Convert.ToBase64String(contentphoto);
+                //byte[] convertcontentphoto = System.Convert.FromBase64String(converphototostring);
+                //var imageMemoryStream = new MemoryStream(convertcontentphoto);              
+                newsAndAnnouncements.Add(latestnewsandannouncement);
+            }
+
+
+            catch (Exception e)
+            {
+
             }
         }
 

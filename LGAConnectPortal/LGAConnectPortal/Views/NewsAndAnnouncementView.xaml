@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LGAConnectPortal.Views.NewsAndAnnouncementView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    
+
+                    <StackLayout
+                        Grid.Row="0"
+                        Margin="0"
+                        Padding="20">
+                        <Frame
+                            Padding="0"
+                            CornerRadius="15"
+                            HasShadow="True"
+                            HeightRequest="200"
+                            IsClippedToBounds="True">
+
+                            <Image
+                                x:Name="ContentPhoto"
+                                Aspect="AspectFill"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand" />
+
+                        </Frame>
+                    </StackLayout>
+
+                    <Label
+                        x:Name="Title"
+                        Grid.Row="1"
+                        Margin="25,0,0,0"
+                        FontFamily="MSemiBold"
+                        FontSize="20"
+                        Text=""
+                        TextColor="{StaticResource Black}" />
+
+                    <Label
+                        x:Name="DateCreated"
+                        Grid.Row="2"
+                        Margin="25,0,25,0"
+                        FontFamily="MM"
+                        FontSize="12"
+                        Text=""
+                        TextColor="{StaticResource Black}" />
+
+                    <Label
+                        x:Name="Content"
+                        Grid.Row="3"
+                        Margin="25,15,25,20"
+                        FontFamily="MM"
+                        FontSize="16"
+                        LineHeight="1.5"
+                        Text=""
+                        TextColor="{StaticResource Black}"
+                        TextType="Html" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

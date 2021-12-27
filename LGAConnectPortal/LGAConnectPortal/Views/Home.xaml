@@ -32,7 +32,8 @@
                         <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
                             <Label x:Name="txtGreetings" Style="{StaticResource TitleLabel}" />
 
-                            <ImageButton x:Name="btnStudentProfile"
+                            <ImageButton
+                                x:Name="btnStudentProfile"
                                 Aspect="AspectFill"
                                 BackgroundColor="{StaticResource DarkGray}"
                                 Command="{Binding AccountCommand}"
@@ -181,41 +182,82 @@
                         Grid.Column="0"
                         Margin="10,5,10,5"
                         Style="{StaticResource DashboardCard}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto" />
-                            </Grid.RowDefinitions>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
 
-                            <BoxView
-                                Grid.Row="0"
-                                BackgroundColor="{StaticResource WitchHaze}"
-                                HeightRequest="37" />
-
-
-                            <Label
-                                Grid.Row="0"
-                                Margin="15,10,0,0"
-                                FontFamily="MM"
-                                FontSize="12"
-                                Text="Latest News &amp; Announcements"
-                                TextColor="{StaticResource Black}" />
-
-                            <Label
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                Margin="0,10,15,0"
-                                FontFamily="MM"
-                                FontSize="10"
-                                HorizontalOptions="EndAndExpand"
-                                Text="View More"
-                                TextColor="{StaticResource DeepSkyBlue}">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding NewsCommand}" />
-                                </Label.GestureRecognizers>
-                            </Label>
+                                <BoxView
+                                    Grid.Row="0"
+                                    BackgroundColor="{StaticResource WitchHaze}"
+                                    HeightRequest="37" />
 
 
-                        </Grid>
+                                <Label
+                                    Grid.Row="0"
+                                    Margin="15,10,0,0"
+                                    FontFamily="MM"
+                                    FontSize="12"
+                                    Text="Latest News &amp; Announcements"
+                                    TextColor="{StaticResource Black}" />
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Margin="0,10,15,0"
+                                    FontFamily="MM"
+                                    FontSize="10"
+                                    HorizontalOptions="EndAndExpand"
+                                    Text="View More"
+                                    TextColor="{StaticResource DeepSkyBlue}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding NewsCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+
+                            <ListView
+                                Margin="0,0,0,0"
+                                HasUnevenRows="True"
+                                ItemsSource="{Binding newsAndAnnouncements}"
+                                SelectionMode="None">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout>
+                                                <Frame
+                                                    Padding="0" CornerRadius="10" Margin="25,0,25,0"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    IsClippedToBounds="True"
+                                                    VerticalOptions="FillAndExpand">
+                                                    <Image
+                                                        Aspect="AspectFill"
+                                                        HeightRequest="100"
+                                                        Source="{Binding Thumbnail}" />
+                                                </Frame>
+
+                                                <StackLayout Margin="15,0,15,10">
+                                                    <Label Margin="15,0,15,0"
+                                                        FontFamily="MSemiBold"
+                                                        FontSize="14"
+                                                        Text="{Binding Title}"
+                                                        TextColor="{StaticResource Black}" />
+                                                    <Label Margin="15,0,15,0"
+                                                        FontFamily="MM"
+                                                        FontSize="12"
+                                                        LineBreakMode="TailTruncation"
+                                                        Text="{Binding Content}"
+                                                        TextColor="{StaticResource Black}" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackLayout>
+
                     </Frame>
 
                     <Frame
