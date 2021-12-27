@@ -11,7 +11,7 @@ namespace LGAConnectPortal.Gateway
 {
     public class ClassScheduleGateway
     {
-        static string BaseUrl = "http://ceejaygabrang-001-site1.itempurl.com/api/lga/classSchedule";
+        static string BaseUrl = "http://cegagabrang-001-site1.btempurl.com/api/lga/classSchedule";
 
         public async Task<IEnumerable<ClassSchedule>> GetClassScheduleStudent(int ID)
         {

@@ -9,23 +9,23 @@ using System.Threading.Tasks;
 
 namespace LGAConnectPortal.Gateway
 {
-    public class AbouGateway
+    public class NewsAndAnnouncementsGateway
     {
-        static string BaseUrl = "http://cegagabrang-001-site1.btempurl.com/api/lga/about";
+        static string BaseUrl = "http://cegagabrang-001-site1.btempurl.com/api/lga/newsAndAnnouncements";
 
-        public async Task<IEnumerable<About>> GetAbout()
+        public async Task<IEnumerable<NewsAndAnnouncements>> GetNewsAndAnnouncements()
         {
 
             try
             {
                 string url = BaseUrl + "/get_all";
                 var content = await WebMethods.MakeGetRequest(url);
-                var result = JsonConvert.DeserializeObject<IEnumerable<About>>(content);
+                var result = JsonConvert.DeserializeObject<IEnumerable<NewsAndAnnouncements>>(content);
                 return result;
             }
             catch
             {
-                return Enumerable.Empty<About>();
+                return Enumerable.Empty<NewsAndAnnouncements>();
             }
         }
     }

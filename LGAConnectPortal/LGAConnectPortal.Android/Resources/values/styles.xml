@@ -14,6 +14,7 @@
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
     <item name="colorAccent">#19b5fe</item>
+    <item name="android:colorActivatedHighlight">@android:color/transparent</item>
   </style>
 
   <style name="SplashTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">

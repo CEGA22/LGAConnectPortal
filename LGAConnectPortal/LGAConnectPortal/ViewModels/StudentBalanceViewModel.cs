@@ -20,9 +20,10 @@ namespace LGAConnectPortal.ViewModels
         public AsyncCommand RefreshCommand { get;}       
         public StudentBalanceViewModel()
         {
+            PreparePageBindings();
             studentBalances = new ObservableRangeCollection<StudentBalance>();
             RefreshCommand = new AsyncCommand(RefreshStudentBalance);
-            PreparePageBindings();
+            
         }
 
 

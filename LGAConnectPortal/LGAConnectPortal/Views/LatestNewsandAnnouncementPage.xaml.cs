@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LGAConnectPortal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace LGAConnectPortal.Views
         public LatestNewsandAnnouncementPage()
         {
             InitializeComponent();
+        }
+
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var details  = e.Item as NewsAndAnnouncements;
+            await Navigation.PushAsync( new NewsAndAnnouncementView(details.Thumbnail, details.Title, details.Content, details.DateCreated));
         }
     }
 }

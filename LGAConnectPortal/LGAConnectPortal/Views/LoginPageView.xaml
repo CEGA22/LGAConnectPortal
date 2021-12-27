@@ -65,7 +65,7 @@
                     Grid.Row="2"
                     Margin="25,25,25,25"
                     BackgroundColor="{StaticResource WitchHaze}"
-                    Command="{Binding _HomePage}"
+                    Command="{Binding HomePageCommand}"
                     CornerRadius="10"
                     FontFamily="MM"
                     FontSize="14"

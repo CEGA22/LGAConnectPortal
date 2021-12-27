@@ -20,6 +20,9 @@ namespace LGAConnectPortal.Views
             byte[] convertprofile = System.Convert.FromBase64String(profile);
             var imageMemoryStream = new MemoryStream(convertprofile);
             btnStudentProfile.Source = ImageSource.FromStream(() => imageMemoryStream);
+            StudentName.Text = Preferences.Get("Fullname", string.Empty);
+            GradeLevel.Text = Preferences.Get("GradeLevel", string.Empty); 
+            Section.Text = Preferences.Get("SectionName", string.Empty);
         }
     }
 }

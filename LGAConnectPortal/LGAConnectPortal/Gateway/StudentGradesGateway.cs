@@ -9,23 +9,22 @@ using System.Threading.Tasks;
 
 namespace LGAConnectPortal.Gateway
 {
-    public class AbouGateway
+    public class StudentGradesGateway
     {
-        static string BaseUrl = "http://cegagabrang-001-site1.btempurl.com/api/lga/about";
+        static string BaseUrl = "http://cegagabrang-001-site1.btempurl.com/api/lga/classrecordstudent";
 
-        public async Task<IEnumerable<About>> GetAbout()
+        public async Task<IEnumerable<StudentGrades>> GetStudentGradesByID(int ID)
         {
-
             try
             {
-                string url = BaseUrl + "/get_all";
+                string url = $"{BaseUrl}/get_all/{ID}";
                 var content = await WebMethods.MakeGetRequest(url);
-                var result = JsonConvert.DeserializeObject<IEnumerable<About>>(content);
+                var result = JsonConvert.DeserializeObject<IEnumerable<StudentGrades>>(content);
                 return result;
             }
             catch
             {
-                return Enumerable.Empty<About>();
+                return Enumerable.Empty<StudentGrades>();
             }
         }
     }

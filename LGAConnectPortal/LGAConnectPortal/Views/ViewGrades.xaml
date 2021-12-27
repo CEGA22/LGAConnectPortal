@@ -3,23 +3,160 @@
     x:Class="LGAConnectPortal.Views.ViewGrades"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LGAConnectPortal.ViewModels"
     NavigationPage.HasNavigationBar="False">
-    <ContentPage.Content>
-        <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
 
-                <Label Margin="15,15,0,0"
-                    Grid.Row="0"
-                    Style="{StaticResource TitleLabel}"
-                    Text="Your Grades" />
-                
-                
-            </Grid>
-        </StackLayout>
+    <ContentPage.BindingContext>
+        <local:ViewGradesViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Margin="15,15,0,0"
+                        Style="{StaticResource TitleLabel}"
+                        Text="Your Grades" />
+
+                    <ListView
+                        Grid.Row="1"
+                        HasUnevenRows="True"
+                        IsPullToRefreshEnabled="True"
+                        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                        ItemsSource="{Binding StudentGrades}"
+                        RefreshCommand="{Binding RefreshCommand}"
+                        SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <StackLayout>
+                                            <Frame
+                                                Margin="15,5,15,10"
+                                                Padding="0"
+                                                CornerRadius="15"
+                                                HeightRequest="200"
+                                                MinimumHeightRequest="200"
+                                                MinimumWidthRequest="300"
+                                                WidthRequest="396">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto" />
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <BoxView
+                                                        Grid.Row="0"
+                                                        BackgroundColor="{StaticResource WitchHaze}"
+                                                        HeightRequest="37" />
+
+
+                                                    <FlexLayout
+                                                        Grid.Row="0"
+                                                        AlignItems="Center"
+                                                        HeightRequest="55"
+                                                        JustifyContent="SpaceBetween">
+                                                        <StackLayout>
+                                                            <Label
+                                                                Margin="15,10,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="{Binding SubjectName}"
+                                                                TextColor="{StaticResource Black}" />
+
+                                                            <Label
+                                                                Grid.Row="0"
+                                                                Margin="15,0,0,5"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="Teacher name"
+                                                                TextColor="{StaticResource Black}" />
+                                                        </StackLayout>
+                                                    </FlexLayout>
+
+
+                                                    <FlexLayout
+                                                        Grid.Row="1"
+                                                        Margin="20,0,20,0"
+                                                        JustifyContent="SpaceBetween">
+                                                        <StackLayout>
+                                                            <Label
+                                                                Margin="15,10,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="First Quarter"
+                                                                TextColor="{StaticResource Black}" />
+
+                                                            <Label
+                                                                Margin="15,5,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="Second Quarter"
+                                                                TextColor="{StaticResource Black}" />
+
+                                                            <Label
+                                                                Margin="15,5,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="Third Quarter"
+                                                                TextColor="{StaticResource Black}" />
+
+                                                            <Label
+                                                                Margin="15,5,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="Fourth Quarter"
+                                                                TextColor="{StaticResource Black}" />
+                                                        </StackLayout>
+
+                                                        <StackLayout>
+                                                            <Label
+                                                                Margin="15,10,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="{Binding FirstGrading}"
+                                                                TextColor="{StaticResource Black}" />
+
+                                                            <Label
+                                                                Margin="15,5,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="{Binding SecondGrading}"
+                                                                TextColor="{StaticResource Black}" />
+
+                                                            <Label
+                                                                Margin="15,5,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="{Binding ThirdGrading}"
+                                                                TextColor="{StaticResource Black}" />
+
+                                                            <Label
+                                                                Margin="15,5,0,0"
+                                                                FontFamily="MM"
+                                                                FontSize="12"
+                                                                Text="{Binding FourthGrading}"
+                                                                TextColor="{StaticResource Black}" />
+                                                        </StackLayout>
+                                                    </FlexLayout>
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
