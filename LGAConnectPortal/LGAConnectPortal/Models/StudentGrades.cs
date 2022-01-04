@@ -77,5 +77,18 @@ namespace LGAConnectPortal.Models
         public int SaveDraft { get; set; }
 
         public int GradingPeriod { get; set; }
+
+        public string TeacherFirstname { get; set; }
+
+        public string TeacherLastname { get; set; }
+
+        private string fullname;
+
+        public string Fullname
+        {
+            get { return $"{TeacherFirstname} {TeacherLastname}"; }
+            set { fullname = value; }
+
+        }
     }
 }

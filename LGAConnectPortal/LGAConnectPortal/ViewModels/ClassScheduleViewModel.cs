@@ -64,14 +64,16 @@ namespace LGAConnectPortal.ViewModels
             var classscheduleservice = await ClassScheduleService.GetClassScheduleDetailsStudent(ID);
             classSchedulesList = classscheduleservice.ToList();
             classSchedulesList.ForEach(x => { x.TileColor = Color.FromHex(tileColors[RandomNumber(0, 10)]); });
-            classschedule.Clear();
+            
 
             if (weekDay == "Entire Week")
             {
+                classschedule.Clear();             
                 classschedule.AddRange(classSchedulesList);
             }
             else
             {
+                classschedule.Clear();           
                 var filteredScheduleList = classSchedulesList.Where(x => x.WeekDay == weekDay);
                 classschedule.AddRange(filteredScheduleList);
             } 

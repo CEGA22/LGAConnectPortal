@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace LGAConnectPortal.ViewModels
@@ -16,17 +17,16 @@ namespace LGAConnectPortal.ViewModels
     public class LatestNewsandAnnouncementPageViewModel: BaseViewModel
     {
         public ObservableRangeCollection<NewsAndAnnouncements> newsAndAnnouncements { get; }
-        public AsyncCommand SelectedNewsAndAnnouncements { get; set; }
+        public AsyncCommand SelectedNewsAndAnnouncements { get; set; }     
         public LatestNewsandAnnouncementPageViewModel()
         {
-            newsAndAnnouncements = new ObservableRangeCollection<NewsAndAnnouncements>();          
+            newsAndAnnouncements = new ObservableRangeCollection<NewsAndAnnouncements>();           
             PrepareBindings();
         }
-
-           
+         
         public async void PrepareBindings()
         {
-            await DisplayNewsAndAnnouncements();
+            await DisplayNewsAndAnnouncements();          
         }
 
         public async Task DisplayNewsAndAnnouncements()
@@ -34,22 +34,13 @@ namespace LGAConnectPortal.ViewModels
             try
             {
                 var result = await NewsAndAnnouncementsService.GetNewsAndAnnouncements();
-
-                
-                //var contentphoto = newsAndAnnouncements.SelectMany(x => x.ContentPhoto).ToArray();
-                //string converphototostring = System.Convert.ToBase64String(contentphoto);
-                //byte[] convertcontentphoto = System.Convert.FromBase64String(converphototostring);
-                //var imageMemoryStream = new MemoryStream(convertcontentphoto);
-                
-
-                newsAndAnnouncements.AddRange(result);
+                var resultOrder = result.OrderByDescending(x => x.DateCreated);
+                newsAndAnnouncements.AddRange(resultOrder);
             }
-
 
             catch (Exception e)
             {
-
             }
-        }      
+        }       
     }
 }

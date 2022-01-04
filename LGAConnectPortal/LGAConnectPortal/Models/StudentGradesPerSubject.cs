@@ -8,7 +8,7 @@ namespace LGAConnectPortal.Models
     {
         public string SubjectName { get; set; }
 
-        public string FacultyName { get; set; }
+        //public string FacultyName { get; set; }
 
         public double FirstGrading { get; set; }
 
@@ -17,5 +17,18 @@ namespace LGAConnectPortal.Models
         public double ThirdGrading { get; set; }
 
         public double FourthGrading { get; set; }
+
+        public string TeacherFirstname { get; set; }
+
+        public string TeacherLastname { get; set; }
+
+        private string facultyname;
+
+        public string FacultyName
+        {
+            get { return $"{TeacherFirstname} {TeacherLastname}"; }
+            set { facultyname = value; }
+
+        }
     }
 }

@@ -40,7 +40,7 @@ namespace LGAConnectPortal.ViewModels
 
             var subjectList = studentGradesList.Select(x => x.SubjectName).Distinct();
 
-            foreach (var subject in subjectList)
+         foreach (var subject in subjectList)
             {
                 var quarterGrades = studentGradesList.Where(x => x.SubjectName == subject).OrderBy(o => o.GradingPeriod);
 
@@ -49,15 +49,14 @@ namespace LGAConnectPortal.ViewModels
                     var firstGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 1).QuarterlyGrade;
                     var secondGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 2).QuarterlyGrade;
                     var thirdGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 3).QuarterlyGrade;
-                    var fourthGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).QuarterlyGrade;
-
+                    var fourthGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).QuarterlyGrade;                   
                     var itemToAdd = new StudentGradesPerSubject
                     {
                         SubjectName = subject,
                         FirstGrading = firstGrading,
                         SecondGrading = secondGrading,
                         ThirdGrading = thirdGrading,
-                        FourthGrading = fourthGrading
+                        FourthGrading = fourthGrading,                      
                     };
 
                     StudentGrades.Add(itemToAdd);

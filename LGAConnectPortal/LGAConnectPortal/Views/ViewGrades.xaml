@@ -62,23 +62,23 @@
                                                     <FlexLayout
                                                         Grid.Row="0"
                                                         AlignItems="Center"
-                                                        HeightRequest="55"
+                                                        HeightRequest="40"
                                                         JustifyContent="SpaceBetween">
                                                         <StackLayout>
                                                             <Label
-                                                                Margin="15,10,0,0"
+                                                                Margin="15,0,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="{Binding SubjectName}"
                                                                 TextColor="{StaticResource Black}" />
 
-                                                            <Label
+                                                            <!--<Label
                                                                 Grid.Row="0"
                                                                 Margin="15,0,0,5"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
-                                                                Text="Teacher name"
-                                                                TextColor="{StaticResource Black}" />
+                                                                FontSize="14"
+                                                                Text="{Binding FacultyName}"
+                                                                TextColor="{StaticResource Black}" />-->
                                                         </StackLayout>
                                                     </FlexLayout>
 
@@ -91,58 +91,58 @@
                                                             <Label
                                                                 Margin="15,10,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="First Quarter"
-                                                                TextColor="{StaticResource Black}" />
+                                                                TextColor="{StaticResource DeepSkyBlue}" />
 
                                                             <Label
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="Second Quarter"
-                                                                TextColor="{StaticResource Black}" />
+                                                                TextColor="{StaticResource DeepSkyBlue}" />
 
                                                             <Label
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="Third Quarter"
-                                                                TextColor="{StaticResource Black}" />
+                                                                TextColor="{StaticResource DeepSkyBlue}" />
 
                                                             <Label
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="Fourth Quarter"
-                                                                TextColor="{StaticResource Black}" />
+                                                                TextColor="{StaticResource DeepSkyBlue}" />
                                                         </StackLayout>
 
                                                         <StackLayout>
                                                             <Label
                                                                 Margin="15,10,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="{Binding FirstGrading}"
                                                                 TextColor="{StaticResource Black}" />
 
                                                             <Label
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="{Binding SecondGrading}"
                                                                 TextColor="{StaticResource Black}" />
 
                                                             <Label
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="{Binding ThirdGrading}"
                                                                 TextColor="{StaticResource Black}" />
 
                                                             <Label
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
-                                                                FontSize="12"
+                                                                FontSize="14"
                                                                 Text="{Binding FourthGrading}"
                                                                 TextColor="{StaticResource Black}" />
                                                         </StackLayout>

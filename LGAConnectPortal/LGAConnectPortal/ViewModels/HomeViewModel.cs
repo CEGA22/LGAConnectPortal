@@ -48,12 +48,13 @@ namespace LGAConnectPortal.ViewModels
 
         public HomeViewModel()
         {
-            PreparePageBindings();
+            
             classschedule = new ObservableRangeCollection<Models.ClassSchedule>();
             newsAndAnnouncements = new ObservableRangeCollection<NewsAndAnnouncements>();
             AccountCommand = new AsyncCommand(GotoMenuPage);
             NewsCommand = new AsyncCommand(GotoLatestNewsandAnnouncementPage);
-            GradesCommand = new AsyncCommand(GotoViewGrades);        
+            GradesCommand = new AsyncCommand(GotoViewGrades);
+            PreparePageBindings();
         }
 
         private async void PreparePageBindings()
@@ -71,11 +72,13 @@ namespace LGAConnectPortal.ViewModels
             classschedule.Clear();
 
             if (weekDay == "Entire Week")
-            {             
+            {
+                classschedule.Clear();
                 classschedule.AddRange(classScheduleList);
             }
             else
-            {             
+            {
+                classschedule.Clear();
                 var filteredScheduleList = classScheduleList.Where(x => x.WeekDay == weekDay);               
                 classschedule.AddRange(filteredScheduleList);
             }
@@ -87,7 +90,7 @@ namespace LGAConnectPortal.ViewModels
             {
                 var result = await NewsAndAnnouncementsService.GetNewsAndAnnouncements();
 
-                var latestnewsandannouncementsOrder = result.OrderBy(x => x.DateCreated);
+                var latestnewsandannouncementsOrder = result.OrderByDescending(x => x.DateCreated);
                 var latestnewsandannouncement = latestnewsandannouncementsOrder.FirstOrDefault();
 
                 //var contentphoto = newsAndAnnouncements.SelectMany(x => x.ContentPhoto).ToArray();

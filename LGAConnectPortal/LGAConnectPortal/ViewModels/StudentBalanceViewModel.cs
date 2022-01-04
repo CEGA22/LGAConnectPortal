@@ -26,7 +26,6 @@ namespace LGAConnectPortal.ViewModels
             
         }
 
-
         private async void PreparePageBindings()
         {
             await DisplayStudentBalance();
@@ -39,7 +38,6 @@ namespace LGAConnectPortal.ViewModels
             var studentBalance = studentBalanceservice.ToList();
             studentBalances.AddRange(studentBalance);
         }
-
 
         public async Task RefreshStudentBalance()
         {

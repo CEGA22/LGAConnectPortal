@@ -27,9 +27,9 @@
                     <ListView
                         Grid.Row="1"
                         Margin="0,15,0,0"
-                        HasUnevenRows="True"
+                        HasUnevenRows="True"                       
                         ItemTapped="ListView_ItemTapped"
-                        ItemsSource="{Binding newsAndAnnouncements}"
+                        ItemsSource="{Binding newsAndAnnouncements}"                     
                         SelectionMode="Single"
                         SeparatorVisibility="None">
                         <ListView.ItemTemplate>
@@ -80,16 +80,11 @@
                                                     TextColor="{StaticResource Black}" />
                                             </StackLayout>
                                         </StackLayout>
-
                                     </Frame>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-
-
-
-
                 </Grid>
             </StackLayout>
         </ScrollView>
