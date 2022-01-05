@@ -31,7 +31,7 @@
                         HasUnevenRows="True"
                         IsPullToRefreshEnabled="True"
                         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                        ItemsSource="{Binding StudentGrades}"
+                        ItemsSource="{Binding studentGrades}"
                         RefreshCommand="{Binding RefreshCommand}"
                         SeparatorVisibility="None">
                         <ListView.ItemTemplate>

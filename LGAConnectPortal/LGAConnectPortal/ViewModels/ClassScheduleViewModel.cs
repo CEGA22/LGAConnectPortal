@@ -42,7 +42,6 @@ namespace LGAConnectPortal.ViewModels
         public AsyncCommand RefreshCommand { get; set; }      
         public ClassScheduleViewModel()
         {
-            PreparePageBindings();
             classschedule = new ObservableRangeCollection<ClassSchedule>();
             //classscheduleWeek = new ObservableRangeCollection<ClassSchedule>();
             //DisplayCommand = new AsyncCommand(DisplayClassSchedule);
@@ -51,12 +50,6 @@ namespace LGAConnectPortal.ViewModels
             
         }
 
-        private async void PreparePageBindings() 
-        {
-            await DisplayClassSchedule();           
-        }
-
-        //DateTime currentDateTime = DateTime.UtcNow;
         List<ClassSchedule> classSchedulesList = new List<ClassSchedule>();
         public async Task DisplayClassSchedule(string weekDay = "Entire Week")
         {        

@@ -13,10 +13,10 @@
         <ScrollView>
             <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
 
                     <Label
                         Grid.Row="0"
@@ -24,7 +24,7 @@
                         Style="{StaticResource TitleLabel}"
                         Text="Latest News &amp;&#10;Announcements" />
 
-                    <ListView
+                        <ListView
                         Grid.Row="1"
                         Margin="0,15,0,0"
                         HasUnevenRows="True"                       
@@ -32,10 +32,10 @@
                         ItemsSource="{Binding newsAndAnnouncements}"                     
                         SelectionMode="Single"
                         SeparatorVisibility="None">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Frame
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame
                                         Margin="10,10,10,5"
                                         Padding="0"
                                         BackgroundColor="{StaticResource White}"
@@ -45,48 +45,47 @@
                                         MinimumHeightRequest="200"
                                         MinimumWidthRequest="300"
                                         WidthRequest="350">
-                                        <StackLayout>
-                                            <Frame
-                                                Padding="0"
-                                                BackgroundColor="Red"
+                                            <StackLayout>
+                                                <Frame
+                                                Padding="0"                                              
                                                 HorizontalOptions="FillAndExpand"
                                                 IsClippedToBounds="True"
                                                 VerticalOptions="FillAndExpand">
-                                                <Image
+                                                    <Image
                                                     Aspect="AspectFill"
                                                     HeightRequest="100"
                                                     Source="{Binding Thumbnail}" />
-                                            </Frame>
+                                                </Frame>
 
 
-                                            <StackLayout Margin="15,0,15,10">
-                                                <Label
+                                                <StackLayout Margin="15,0,15,10">
+                                                    <Label
                                                     FontFamily="MSemiBold"
                                                     FontSize="18"
                                                     Text="{Binding Title}"
                                                     TextColor="{StaticResource Black}" />
-                                                <Label
+                                                    <Label
                                                     FontFamily="MM"
                                                     FontSize="14"
                                                     LineBreakMode="TailTruncation"
                                                     Text="{Binding Content}"
                                                     TextColor="{StaticResource Black}" />
 
-                                                <Label
+                                                    <Label
                                                     Margin="0,15,0,0"
                                                     FontFamily="MM"
                                                     FontSize="12"
                                                     Text="{Binding Date}"
                                                     TextColor="{StaticResource Black}" />
+                                                </StackLayout>
                                             </StackLayout>
-                                        </StackLayout>
-                                    </Frame>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Grid>
-            </StackLayout>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

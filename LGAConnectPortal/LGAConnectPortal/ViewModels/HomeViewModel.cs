@@ -47,8 +47,7 @@ namespace LGAConnectPortal.ViewModels
         public AsyncCommand GradesCommand { get; set; }
 
         public HomeViewModel()
-        {
-            
+        {         
             classschedule = new ObservableRangeCollection<Models.ClassSchedule>();
             newsAndAnnouncements = new ObservableRangeCollection<NewsAndAnnouncements>();
             AccountCommand = new AsyncCommand(GotoMenuPage);
@@ -59,7 +58,6 @@ namespace LGAConnectPortal.ViewModels
 
         private async void PreparePageBindings()
         {
-            await DisplayClassSchedule();
             await DisplayNewsAndAnnouncements();
         }
 
@@ -79,7 +77,7 @@ namespace LGAConnectPortal.ViewModels
             else
             {
                 classschedule.Clear();
-                var filteredScheduleList = classScheduleList.Where(x => x.WeekDay == weekDay);               
+                var filteredScheduleList = classScheduleList.Where(x => x.WeekDay == weekDay);
                 classschedule.AddRange(filteredScheduleList);
             }
         }
@@ -88,7 +86,7 @@ namespace LGAConnectPortal.ViewModels
         {
             try
             {
-                var result = await NewsAndAnnouncementsService.GetNewsAndAnnouncements();
+                var result = await Task.Run(() => NewsAndAnnouncementsService.GetNewsAndAnnouncements());
 
                 var latestnewsandannouncementsOrder = result.OrderByDescending(x => x.DateCreated);
                 var latestnewsandannouncement = latestnewsandannouncementsOrder.FirstOrDefault();
@@ -122,7 +120,5 @@ namespace LGAConnectPortal.ViewModels
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ViewGrades());
         }
-
-
     }
 }

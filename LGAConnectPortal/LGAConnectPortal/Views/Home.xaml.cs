@@ -29,7 +29,7 @@ namespace LGAConnectPortal.Views
 
         public async void LoadData()
         {
-            DateTime currentDateTime = DateTime.Now;          
+            DateTime currentDateTime = DateTime.Now;
             var todaysweek = currentDateTime.DayOfWeek.ToString();
             if (BindingContext is HomeViewModel vm)
             {

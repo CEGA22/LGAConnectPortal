@@ -4,6 +4,7 @@ using MvvmHelpers;
 using MvvmHelpers.Commands;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,28 +17,28 @@ namespace LGAConnectPortal.ViewModels
 
         //public ObservableRangeCollection<StudentGrades> studentGrades { get; }
 
-        public List<StudentGradesPerSubject> StudentGrades { get; set; } = new List<StudentGradesPerSubject>();
+        public ObservableCollection<StudentGradesPerSubject> studentGrades { get; set; } = new ObservableCollection<StudentGradesPerSubject>();
+        IEnumerable<StudentGrades> studentGradesList = new List<StudentGrades>();
         public AsyncCommand RefreshCommand { get; }
 
         public ViewGradesViewModel()
         {
             //studentGrades = new ObservableRangeCollection<StudentGrades>();
             //RefreshCommand = new AsyncCommand(RefreshStudentBalance);
-            PrepareBindings();
+            PreparePageBindings();
         }
+ 
 
-        public async void PrepareBindings()
+        private async void PreparePageBindings()
         {
             await DisplayStudentGrades();
         }
 
-        IEnumerable<StudentGrades> studentGradesList = new List<StudentGrades>();
         public async Task DisplayStudentGrades()
         {
             var ID = Preferences.Get("ID", 0);
             studentGradesList = await StudentGradesService.GetStudentgradesByID(ID);
-            //studentGrades.AddRange(studentGradesList);
-
+            //studentGrades.AddRange(studentGradesList);         
             var subjectList = studentGradesList.Select(x => x.SubjectName).Distinct();
 
          foreach (var subject in subjectList)
@@ -59,7 +60,7 @@ namespace LGAConnectPortal.ViewModels
                         FourthGrading = fourthGrading,                      
                     };
 
-                    StudentGrades.Add(itemToAdd);
+                    studentGrades.Add(itemToAdd);
                 }
             }
         }
