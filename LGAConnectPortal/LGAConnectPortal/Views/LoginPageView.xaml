@@ -11,69 +11,76 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
+        <Grid>
+            <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
 
 
-                <Image
-                    Grid.Row="0"
-                    Margin="0,50,0,40"
-                    HeightRequest="170"
-                    Source="LGASCHOOLLOGO.png" />
+                    <Image
+                        Grid.Row="0"
+                        Margin="0,50,0,40"
+                        HeightRequest="170"
+                        Source="LGASCHOOLLOGO.png" />
 
-                <StackLayout Grid.Row="1">
-                    <Label
-                        Margin="30,0,25,0"
-                        FontFamily="MM"
-                        FontSize="18"
-                        Text="Student Number"
-                        TextColor="{StaticResource White}" />
-
-                    <Frame Style="{StaticResource EntryFrame}">
-                        <Entry
-                            x:Name="txtStudentNumber"
+                    <StackLayout Grid.Row="1">
+                        <Label
+                            Margin="30,0,25,0"
                             FontFamily="MM"
-                            FontSize="16"
-                            Placeholder="Student Number"
-                            Text="{Binding StudentID}" />
-                    </Frame>
+                            FontSize="18"
+                            Text="Student Number"
+                            TextColor="{StaticResource White}" />
 
-                    <Label
-                        Margin="30,10,25,0"
-                        FontFamily="MM"
-                        FontSize="18"
-                        Text="Password"
-                        TextColor="{StaticResource White}" />
+                        <Frame Style="{StaticResource EntryFrame}">
+                            <Entry
+                                x:Name="txtStudentNumber"
+                                FontFamily="MM"
+                                FontSize="16"
+                                Placeholder="Student Number"
+                                Text="{Binding StudentID}" />
+                        </Frame>
 
-                    <Frame Style="{StaticResource EntryFrame}">
-                        <Entry
-                            x:Name="txtPassword"
+                        <Label
+                            Margin="30,10,25,0"
                             FontFamily="MM"
-                            FontSize="16"
-                            IsPassword="True"
-                            Placeholder="***************"
-                            Text="{Binding password}" />
-                    </Frame>
-                </StackLayout>
+                            FontSize="18"
+                            Text="Password"
+                            TextColor="{StaticResource White}" />
 
-                <Button
-                    Grid.Row="2"
-                    Margin="25,25,25,25"
-                    BackgroundColor="{StaticResource WitchHaze}"
-                    Command="{Binding HomePageCommand}"
-                    CornerRadius="10"
-                    FontFamily="MM"
-                    FontSize="14"
-                    Text="Sign in"
-                    TextColor="{StaticResource Black}" />
-            </Grid>
-        </StackLayout>
+                        <Frame Style="{StaticResource EntryFrame}">
+                            <Entry
+                                x:Name="txtPassword"
+                                FontFamily="MM"
+                                FontSize="16"
+                                IsPassword="True"
+                                Placeholder="***************"
+                                Text="{Binding password}" />
+                        </Frame>
+                    </StackLayout>
 
+                    <Button
+                        Grid.Row="2"
+                        Margin="25,25,25,25"
+                        BackgroundColor="{StaticResource WitchHaze}"
+                        Command="{Binding HomePageCommand}"
+                        CornerRadius="10"
+                        FontFamily="MM"
+                        FontSize="14"
+                        Text="Sign in"
+                        TextColor="{StaticResource Black}" />
+                </Grid>
+            </StackLayout>
 
+            <ActivityIndicator
+                x:Name="activity"
+                IsRunning="{Binding IsBusy, Mode=OneWay}"
+                IsVisible="{Binding IsBusy, Mode=OneWay}"
+                Scale="0.1"
+                Color="Black" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

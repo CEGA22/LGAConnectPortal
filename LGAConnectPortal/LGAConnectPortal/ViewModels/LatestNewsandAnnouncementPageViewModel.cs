@@ -33,9 +33,11 @@ namespace LGAConnectPortal.ViewModels
         {
             try
             {
+                IsBusy = true;
                 var result = await NewsAndAnnouncementsService.GetNewsAndAnnouncements();
                 var resultOrder = result.OrderByDescending(x => x.DateCreated);
                 newsAndAnnouncements.AddRange(resultOrder);
+                IsBusy = false;
             }
 
             catch (Exception e)

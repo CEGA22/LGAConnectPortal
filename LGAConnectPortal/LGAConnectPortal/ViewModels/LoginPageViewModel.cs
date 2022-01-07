@@ -25,7 +25,8 @@ namespace LGAConnectPortal.ViewModels
         public string password { get; set; }
 
         async Task GotoHomePage()
-        {           
+        {
+            IsBusy = true;
             LoginService loginService = new LoginService();
             var result = await loginService.StudentAccountLogin(new StudentLoginRequest
             {
@@ -36,11 +37,13 @@ namespace LGAConnectPortal.ViewModels
             if (result.IsSuccess)
             {
                 PersistentData(result.ID, result.Firstname, result.Lastname, result.Fullname, result.Middlename, result.Password, result.GradeLevel, result.SectionName, result.StudentProfile);
+                IsBusy = false;
                 Application.Current.MainPage = new NavigationPage(new DashboardTabbedPage());
 
             }
             else
             {
+                IsBusy = false;
                 await Application.Current.MainPage.DisplayAlert("Error", "Wrong Student ID or Password", "OK");
             }
         }

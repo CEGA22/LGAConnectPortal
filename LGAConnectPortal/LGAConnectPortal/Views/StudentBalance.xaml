@@ -30,7 +30,6 @@
                     BackgroundColor="{StaticResource WitchHaze}"
                     HeightRequest="2" />
 
-
                 <ListView
                     Grid.Row="2"
                     Margin="0,25,0,0"
@@ -63,7 +62,6 @@
                                                 BackgroundColor="{StaticResource WitchHaze}"
                                                 HeightRequest="37" />
 
-
                                             <Label
                                                 Grid.Row="0"
                                                 Margin="15,10,0,0"
@@ -87,14 +85,12 @@
                                                     </Label.FormattedText>
                                                 </Label>
 
-
-
                                                 <Label
                                                     Margin="0,10,0,0"
                                                     FontFamily="MM"
                                                     FontSize="10"
                                                     HorizontalOptions="Center"
-                                                    Text="As of December 8, 2021"
+                                                    Text="{Binding Date}"
                                                     TextColor="{StaticResource Black}"
                                                     VerticalOptions="End" />
                                             </StackLayout>

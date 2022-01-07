@@ -86,18 +86,13 @@ namespace LGAConnectPortal.ViewModels
         {
             try
             {
+                IsBusy = true;
                 var result = await Task.Run(() => NewsAndAnnouncementsService.GetNewsAndAnnouncements());
-
                 var latestnewsandannouncementsOrder = result.OrderByDescending(x => x.DateCreated);
-                var latestnewsandannouncement = latestnewsandannouncementsOrder.FirstOrDefault();
-
-                //var contentphoto = newsAndAnnouncements.SelectMany(x => x.ContentPhoto).ToArray();
-                //string converphototostring = System.Convert.ToBase64String(contentphoto);
-                //byte[] convertcontentphoto = System.Convert.FromBase64String(converphototostring);
-                //var imageMemoryStream = new MemoryStream(convertcontentphoto);              
+                var latestnewsandannouncement = latestnewsandannouncementsOrder.FirstOrDefault();                          
                 newsAndAnnouncements.Add(latestnewsandannouncement);
+                IsBusy = false;
             }
-
 
             catch (Exception e)
             {

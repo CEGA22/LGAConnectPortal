@@ -10,73 +10,77 @@
         <local:LatestNewsandAnnouncementPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
-                <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <ScrollView>
+                <StackLayout BackgroundColor="{StaticResource MainBackgroundTheme}">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
 
-                    <Label
-                        Grid.Row="0"
-                        Margin="15,15,0,0"
-                        Style="{StaticResource TitleLabel}"
-                        Text="Latest News &amp;&#10;Announcements" />
+                        <Label
+                            Grid.Row="0"
+                            Margin="15,15,0,0"
+                            Style="{StaticResource TitleLabel}"
+                            Text="Latest News &amp;&#10;Announcements" />
 
                         <ListView
-                        Grid.Row="1"
-                        Margin="0,15,0,0"
-                        HasUnevenRows="True"                       
-                        ItemTapped="ListView_ItemTapped"
-                        ItemsSource="{Binding newsAndAnnouncements}"                     
-                        SelectionMode="Single"
-                        SeparatorVisibility="None">
+                            Grid.Row="1"
+                            Margin="0,15,0,0"
+                            HasUnevenRows="True"
+                            ItemTapped="ListView_ItemTapped"
+                            ItemsSource="{Binding newsAndAnnouncements}"
+                            SelectionMode="Single"
+                            SeparatorVisibility="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <Frame
-                                        Margin="10,10,10,5"
-                                        Padding="0"
-                                        BackgroundColor="{StaticResource White}"
-                                        CornerRadius="20"
-                                        HasShadow="True"
-                                        HeightRequest="250"
-                                        MinimumHeightRequest="200"
-                                        MinimumWidthRequest="300"
-                                        WidthRequest="350">
+                                            Margin="10,10,10,5"
+                                            Padding="0"
+                                            BackgroundColor="{StaticResource White}"
+                                            CornerRadius="20"
+                                            HasShadow="True"
+                                            HeightRequest="250"
+                                            MinimumHeightRequest="200"
+                                            MinimumWidthRequest="300"
+                                            WidthRequest="350">
                                             <StackLayout>
                                                 <Frame
-                                                Padding="0"                                              
-                                                HorizontalOptions="FillAndExpand"
-                                                IsClippedToBounds="True"
-                                                VerticalOptions="FillAndExpand">
+                                                    Padding="0"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    IsClippedToBounds="True"
+                                                    VerticalOptions="FillAndExpand">
                                                     <Image
-                                                    Aspect="AspectFill"
-                                                    HeightRequest="100"
-                                                    Source="{Binding Thumbnail}" />
+                                                        Aspect="AspectFill"
+                                                        HeightRequest="100"
+                                                        Source="{Binding Thumbnail}" />
                                                 </Frame>
 
 
                                                 <StackLayout Margin="15,0,15,10">
                                                     <Label
-                                                    FontFamily="MSemiBold"
-                                                    FontSize="18"
-                                                    Text="{Binding Title}"
-                                                    TextColor="{StaticResource Black}" />
+                                                        FontFamily="MSemiBold"
+                                                        FontSize="18"
+                                                        Text="{Binding Title}"
+                                                        TextColor="{StaticResource Black}" />
                                                     <Label
-                                                    FontFamily="MM"
-                                                    FontSize="14"
-                                                    LineBreakMode="TailTruncation"
-                                                    Text="{Binding Content}"
-                                                    TextColor="{StaticResource Black}" />
+                                                        FontFamily="MM"
+                                                        FontSize="14"
+                                                        LineBreakMode="TailTruncation"
+                                                        Text="{Binding Content}"
+                                                        TextColor="{StaticResource Black}" />
 
                                                     <Label
-                                                    Margin="0,15,0,0"
-                                                    FontFamily="MM"
-                                                    FontSize="12"
-                                                    Text="{Binding Date}"
-                                                    TextColor="{StaticResource Black}" />
+                                                        Margin="0,15,0,0"
+                                                        FontFamily="MM"
+                                                        FontSize="12"
+                                                        Text="{Binding Date}"
+                                                        TextColor="{StaticResource Black}" />
                                                 </StackLayout>
                                             </StackLayout>
                                         </Frame>
@@ -86,6 +90,14 @@
                         </ListView>
                     </Grid>
                 </StackLayout>
-        </ScrollView>
+            </ScrollView>
+
+            <ActivityIndicator
+                x:Name="activity"             
+                IsRunning="{Binding IsBusy, Mode=OneWay}"
+                IsVisible="{Binding IsBusy, Mode=OneWay}"
+                Scale="0.1"
+                Color="Black" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

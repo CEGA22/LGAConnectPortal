@@ -19,12 +19,13 @@ namespace LGAConnectPortal.ViewModels
 
         public ObservableCollection<StudentGradesPerSubject> studentGrades { get; set; } = new ObservableCollection<StudentGradesPerSubject>();
         IEnumerable<StudentGrades> studentGradesList = new List<StudentGrades>();
+        IEnumerable<Subjects> subjects = new List<Subjects>();
         public AsyncCommand RefreshCommand { get; }
 
         public ViewGradesViewModel()
         {
             //studentGrades = new ObservableRangeCollection<StudentGrades>();
-            //RefreshCommand = new AsyncCommand(RefreshStudentBalance);
+            RefreshCommand = new AsyncCommand(RefreshStudentGrades);
             PreparePageBindings();
         }
  
@@ -37,14 +38,16 @@ namespace LGAConnectPortal.ViewModels
         public async Task DisplayStudentGrades()
         {
             var ID = Preferences.Get("ID", 0);
-            studentGradesList = await StudentGradesService.GetStudentgradesByID(ID);
+            studentGradesList = await StudentGradesService.GetStudentgradesByID(ID);          
+            subjects = await SubjectsService.GetSubjects();
             //studentGrades.AddRange(studentGradesList);         
             var subjectList = studentGradesList.Select(x => x.SubjectName).Distinct();
-
+            
          foreach (var subject in subjectList)
             {
+                var SubjectName = subjects.First(x => x.ID == subject).SubjectName;               
                 var quarterGrades = studentGradesList.Where(x => x.SubjectName == subject).OrderBy(o => o.GradingPeriod);
-
+                
                 if (quarterGrades.Any())
                 {
                     var firstGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 1).QuarterlyGrade;
@@ -53,7 +56,7 @@ namespace LGAConnectPortal.ViewModels
                     var fourthGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).QuarterlyGrade;                   
                     var itemToAdd = new StudentGradesPerSubject
                     {
-                        SubjectName = subject,
+                        SubjectName = SubjectName,
                         FirstGrading = firstGrading,
                         SecondGrading = secondGrading,
                         ThirdGrading = thirdGrading,
@@ -65,40 +68,41 @@ namespace LGAConnectPortal.ViewModels
             }
         }
 
-        //public async Task RefreshStudentBalance()
-        //{
-        //    var ID = Preferences.Get("ID", 0);
-        //    IsBusy = true;
-        //    await Task.Delay(2000);
-        //    studentGradesList = await StudentGradesService.GetStudentgradesByID(ID);
-        //    //studentGrades.AddRange(studentGradesList);
+        public async Task RefreshStudentGrades()
+        {
+            var ID = Preferences.Get("ID", 0);
+            IsBusy = true;
+            await Task.Delay(2000);
+            studentGrades.Clear();
+            studentGradesList = await StudentGradesService.GetStudentgradesByID(ID);
+            subjects = await SubjectsService.GetSubjects();
+            //studentGrades.AddRange(studentGradesList);
+            var subjectList = studentGradesList.Select(x => x.SubjectName).Distinct();
+            foreach (var subject in subjectList)
+            {
+                var SubjectName = subjects.First(x => x.ID == subject).SubjectName;
+                var quarterGrades = studentGradesList.Where(x => x.SubjectName == subject).OrderBy(o => o.GradingPeriod);
 
-        //    var subjectList = studentGradesList.Select(x => x.SubjectName).Distinct();
+                if (quarterGrades.Any())
+                {
+                    var firstGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 1).QuarterlyGrade;
+                    var secondGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 2).QuarterlyGrade;
+                    var thirdGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 3).QuarterlyGrade;
+                    var fourthGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).QuarterlyGrade;
 
-        //    foreach (var subject in subjectList)
-        //    {
-        //        var quarterGrades = studentGradesList.Where(x => x.SubjectName == subject).OrderBy(o => o.GradingPeriod);
+                    var itemToAdd = new StudentGradesPerSubject
+                    {
+                        SubjectName = SubjectName,
+                        FirstGrading = firstGrading,
+                        SecondGrading = secondGrading,
+                        ThirdGrading = thirdGrading,
+                        FourthGrading = fourthGrading
+                    };
 
-        //        if (quarterGrades.Any())
-        //        {
-        //            var firstGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 1).QuarterlyGrade;
-        //            var secondGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 2).QuarterlyGrade;
-        //            var thirdGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 3).QuarterlyGrade;
-        //            var fourthGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).QuarterlyGrade;
-
-        //            var itemToAdd = new StudentGradesPerSubject
-        //            {
-        //                SubjectName = subject,
-        //                FirstGrading = firstGrading,
-        //                SecondGrading = secondGrading,
-        //                ThirdGrading = thirdGrading,
-        //                FourthGrading = fourthGrading
-        //            };
-
-        //            StudentGrades.Add(itemToAdd);
-        //        }
-        //        IsBusy = false;
-        //    }
-        //}
+                    studentGrades.Add(itemToAdd);
+                }
+            }
+            IsBusy = false;
+        }
     }
 }

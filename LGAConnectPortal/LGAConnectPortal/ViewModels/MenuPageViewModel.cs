@@ -16,8 +16,7 @@ namespace LGAConnectPortal.ViewModels
         {                   
 
         }
-
-        
+      
         public ICommand _accountSettings => new Command(async () => await GotoAccountSettings());
         public ICommand _About => new Command(async () => await GoToAbout());
         public ICommand _logout => new Command(async () => await LogoutAccount());
@@ -39,8 +38,5 @@ namespace LGAConnectPortal.ViewModels
             Preferences.Clear();
             Application.Current.MainPage = new NavigationPage(new LoginPageView());
         }
-
-
-
     }
 }

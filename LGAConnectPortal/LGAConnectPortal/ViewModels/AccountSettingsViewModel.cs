@@ -73,9 +73,7 @@ namespace LGAConnectPortal.ViewModels
                 {
                     
                 }
-            }
-
-            
+            }           
         }
     }
 }

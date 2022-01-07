@@ -41,12 +41,12 @@ namespace LGAConnectPortal.ViewModels
         public AsyncCommand DisplayWeekCommand { get; set; }
         public AsyncCommand RefreshCommand { get; set; }      
         public ClassScheduleViewModel()
-        {
+        {           
             classschedule = new ObservableRangeCollection<ClassSchedule>();
             //classscheduleWeek = new ObservableRangeCollection<ClassSchedule>();
             //DisplayCommand = new AsyncCommand(DisplayClassSchedule);
             //DisplayWeekCommand = new AsyncCommand(DisplayClassScheduleByWeek);
-            //RefreshCommand = new AsyncCommand(RefreshClassSchedule);
+            //RefreshCommand = new AsyncCommand();
             
         }
 
@@ -81,13 +81,15 @@ namespace LGAConnectPortal.ViewModels
         //    if (weekDay == "Entire Week")
         //    {
         //        classschedule.AddRange(classSchedulesList);
+        //        IsBusy = false;
         //    }
         //    else
         //    {
         //        var filteredScheduleList = classSchedulesList.Where(x => x.WeekDay == weekDay);
         //        classschedule.AddRange(filteredScheduleList);
+        //        IsBusy = false;
         //    }
-        //    IsBusy = false;
-        //}      
+            
+        //}
     }
 }

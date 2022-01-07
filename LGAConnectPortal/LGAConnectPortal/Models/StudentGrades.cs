@@ -64,11 +64,11 @@ namespace LGAConnectPortal.Models
 
         public double QuarterlyGrade { get; set; }
 
-        public string SubjectName { get; set; }
+        public int SubjectName { get; set; }
 
         public string SchoolYearStart { get; set; }
 
-        public int Grade_Level { get; set; }
+        public string Grade_Level { get; set; }
 
         public string SectionName { get; set; }
 
@@ -78,17 +78,17 @@ namespace LGAConnectPortal.Models
 
         public int GradingPeriod { get; set; }
 
-        public string TeacherFirstname { get; set; }
+        //public string TeacherFirstname { get; set; }
 
-        public string TeacherLastname { get; set; }
+        //public string TeacherLastname { get; set; }
 
-        private string fullname;
+       // private string fullname;
 
-        public string Fullname
-        {
-            get { return $"{TeacherFirstname} {TeacherLastname}"; }
-            set { fullname = value; }
+        //public string Fullname
+        //{
+        //    get { return $"{TeacherFirstname} {TeacherLastname}"; }
+        //    set { fullname = value; }
 
-        }
+        //}
     }
 }
