@@ -18,6 +18,10 @@ namespace LGAConnectPortal.Models
 
         public double FourthGrading { get; set; }
 
+        public double FinalGrade { get; set; }
+
+        public double Average { get; set; }
+
         public string TeacherFirstname { get; set; }
 
         public string TeacherLastname { get; set; }

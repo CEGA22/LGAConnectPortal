@@ -52,16 +52,21 @@
                         Text=""
                         TextColor="{StaticResource Black}" />
 
-                    <Label
-                        x:Name="Content"
+                    <Frame HasShadow="True"
                         Grid.Row="3"
-                        Margin="25,15,25,20"
-                        FontFamily="MM"
-                        FontSize="16"
-                        LineHeight="1.5"
-                        Text=""
-                        TextColor="{StaticResource Black}"
-                        TextType="Html" />
+                        Margin="20,5,20,25"
+                        Padding="0"
+                        CornerRadius="10">
+                        <Label
+                            x:Name="Content"
+                            Margin="25,15,25,20"
+                            FontFamily="MM"
+                            FontSize="16"
+                            LineHeight="1.5"
+                            Text=""
+                            TextColor="{StaticResource Black}"
+                            TextType="Html" />
+                    </Frame>
                 </Grid>
             </StackLayout>
         </ScrollView>

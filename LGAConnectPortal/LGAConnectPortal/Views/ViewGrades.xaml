@@ -18,6 +18,7 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
 
                     <Label
@@ -26,8 +27,31 @@
                         Style="{StaticResource TitleLabel}"
                         Text="Your Grades" />
 
-                    <ListView
+                    <Frame
                         Grid.Row="1"
+                        Margin="15,20,15,0"
+                        CornerRadius="10"
+                        HasShadow="True"
+                        HeightRequest="20">
+                        <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
+                            <Label
+                                x:Name="FinalGrade"
+                                FontFamily="MM"
+                                FontSize="16"
+                                Text="Final Grade"
+                                TextColor="{StaticResource DeepSkyBlue}" />
+
+                            <Label
+                                x:Name="Average"
+                                FontFamily="MM"
+                                FontSize="16"
+                                TextColor="{StaticResource Black}" />
+                        </FlexLayout>
+                    </Frame>
+
+                    <ListView
+                        Grid.Row="2"
+                        Margin="0,5,0,0"
                         HasUnevenRows="True"
                         IsPullToRefreshEnabled="True"
                         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -59,28 +83,24 @@
                                                         HeightRequest="37" />
 
 
-                                                    <FlexLayout
-                                                        Grid.Row="0"
-                                                        AlignItems="Center"
-                                                        HeightRequest="40"
-                                                        JustifyContent="SpaceBetween">
-                                                        <StackLayout>
+                                                    <StackLayout Grid.Row="0" HeightRequest="40">
+                                                        <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
                                                             <Label
-                                                                Margin="15,0,0,0"
+                                                                Margin="15,10,0,0"
                                                                 FontFamily="MM"
                                                                 FontSize="14"
                                                                 Text="{Binding SubjectName}"
                                                                 TextColor="{StaticResource Black}" />
 
-                                                            <!--<Label
+                                                            <Label
                                                                 Grid.Row="0"
-                                                                Margin="15,0,0,5"
+                                                                Margin="15,10,20,0"
                                                                 FontFamily="MM"
                                                                 FontSize="14"
-                                                                Text="{Binding FacultyName}"
-                                                                TextColor="{StaticResource Black}" />-->
-                                                        </StackLayout>
-                                                    </FlexLayout>
+                                                                Text="{Binding FinalGrade}"
+                                                                TextColor="{StaticResource Black}" />
+                                                        </FlexLayout>
+                                                    </StackLayout>
 
 
                                                     <FlexLayout
@@ -89,6 +109,7 @@
                                                         JustifyContent="SpaceBetween">
                                                         <StackLayout>
                                                             <Label
+                                                                x:Name="FirstQuarter"
                                                                 Margin="15,10,0,0"
                                                                 FontFamily="MM"
                                                                 FontSize="14"
@@ -96,6 +117,7 @@
                                                                 TextColor="{StaticResource DeepSkyBlue}" />
 
                                                             <Label
+                                                                x:Name="SecondQuarter"
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
                                                                 FontSize="14"
@@ -103,6 +125,7 @@
                                                                 TextColor="{StaticResource DeepSkyBlue}" />
 
                                                             <Label
+                                                                x:Name="ThirdQuarter"
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
                                                                 FontSize="14"
@@ -110,6 +133,7 @@
                                                                 TextColor="{StaticResource DeepSkyBlue}" />
 
                                                             <Label
+                                                                x:Name="FourthQuarter"
                                                                 Margin="15,5,0,0"
                                                                 FontFamily="MM"
                                                                 FontSize="14"

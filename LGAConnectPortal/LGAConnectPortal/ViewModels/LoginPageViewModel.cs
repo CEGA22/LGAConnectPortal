@@ -18,7 +18,7 @@ namespace LGAConnectPortal.ViewModels
         public AsyncCommand HomePageCommand { get; }
         public LoginPageViewModel()
         {         
-            HomePageCommand = new AsyncCommand(GotoHomePage);
+            HomePageCommand = new AsyncCommand(GotoHomePage);          
         }
 
         public string StudentID { get; set; }
@@ -26,7 +26,7 @@ namespace LGAConnectPortal.ViewModels
 
         async Task GotoHomePage()
         {
-            IsBusy = true;
+            IsBusy = true;           
             LoginService loginService = new LoginService();
             var result = await loginService.StudentAccountLogin(new StudentLoginRequest
             {
@@ -37,13 +37,13 @@ namespace LGAConnectPortal.ViewModels
             if (result.IsSuccess)
             {
                 PersistentData(result.ID, result.Firstname, result.Lastname, result.Fullname, result.Middlename, result.Password, result.GradeLevel, result.SectionName, result.StudentProfile);
-                IsBusy = false;
+                IsBusy = false;             
                 Application.Current.MainPage = new NavigationPage(new DashboardTabbedPage());
 
             }
             else
             {
-                IsBusy = false;
+                IsBusy = false;              
                 await Application.Current.MainPage.DisplayAlert("Error", "Wrong Student ID or Password", "OK");
             }
         }

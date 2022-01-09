@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LGAConnectPortal.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,16 @@ namespace LGAConnectPortal.Views
         public ViewGrades()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            if (BindingContext is ViewGradesViewModel vm)
+            {
+                var x = vm.Average;
+                Average.Text = vm.Average.ToString();
+            }           
+            base.OnAppearing();
         }
     }
 }
