@@ -23,6 +23,8 @@ namespace LGAConnectPortal.ViewModels
         IEnumerable<Subjects> subjects = new List<Subjects>();
         public AsyncCommand RefreshCommand { get; }
         public double Average { get; set; }
+
+        public bool ShowAverage { get; set; }
         public ViewGradesViewModel()
         {
             //studentGrades = new ObservableRangeCollection<StudentGrades>();
@@ -44,11 +46,13 @@ namespace LGAConnectPortal.ViewModels
             subjects = await SubjectsService.GetSubjects();
             //studentGrades.AddRange(studentGradesList);         
             var subjectList = studentGradesList.Select(x => x.SubjectName).Distinct();
-            
+
+            ShowAverage = studentGradesList.All(a => a.SaveDraft == 1);
 
             foreach (var subject in subjectList)
             {
-                var SubjectName = subjects.First(x => x.ID == subject).SubjectName;               
+                var SubjectName = subjects.First(x => x.ID == subject).SubjectName;  
+
                 var quarterGrades = studentGradesList.Where(x => x.SubjectName == subject).OrderBy(o => o.GradingPeriod);
                 var finalgradeslist = finalgrades.Where(x => x.SubjectName == SubjectName).Distinct();
 
@@ -61,14 +65,28 @@ namespace LGAConnectPortal.ViewModels
                     var fourthGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).QuarterlyGrade;
                     var finalgrade = finalgradeslist.FirstOrDefault(x => x.SubjectName.Equals(SubjectName)).finalGrade;
                     Average = finalgradeslist.FirstOrDefault(x => x.SubjectName.Equals(SubjectName)).Average;
-                    
+
+                    var isFirstGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 1).SaveDraft == 1;
+                    var isSecondGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 2).SaveDraft == 1;
+                    var isThirdGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 3).SaveDraft == 1;
+                    var isFourthGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).SaveDraft == 1;
+
                     var itemToAdd = new StudentGradesPerSubject
                     {
                         SubjectName = SubjectName,
+
                         FirstGrading = firstGrading,
+                        IsFirstGradingSubmitted = isFirstGradingSubmitted,
+
                         SecondGrading = secondGrading,
+                        IsSecondGradingSubmitted = isSecondGradingSubmitted,
+
                         ThirdGrading = thirdGrading,
+                        IsThirdGradingSubmitted = isThirdGradingSubmitted,
+
                         FourthGrading = fourthGrading, 
+                        IsFourthGradingSubmitted = isFourthGradingSubmitted,
+
                         FinalGrade = finalgrade,
                     };
 
@@ -89,6 +107,9 @@ namespace LGAConnectPortal.ViewModels
             subjects = await SubjectsService.GetSubjects();
             //studentGrades.AddRange(studentGradesList);
             var subjectList = studentGradesList.Select(x => x.SubjectName).Distinct();
+
+            ShowAverage = studentGradesList.All(a => a.SaveDraft == 1);
+
             foreach (var subject in subjectList)
             {
                 var SubjectName = subjects.First(x => x.ID == subject).SubjectName;
@@ -101,13 +122,26 @@ namespace LGAConnectPortal.ViewModels
                     var thirdGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 3).QuarterlyGrade;
                     var fourthGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).QuarterlyGrade;
 
+                    var isFirstGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 1).SaveDraft == 1;
+                    var isSecondGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 2).SaveDraft == 1;
+                    var isThirdGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 3).SaveDraft == 1;
+                    var isFourthGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).SaveDraft == 1;
+
                     var itemToAdd = new StudentGradesPerSubject
                     {
                         SubjectName = SubjectName,
+
                         FirstGrading = firstGrading,
+                        IsFirstGradingSubmitted = isFirstGradingSubmitted,
+
                         SecondGrading = secondGrading,
+                        IsSecondGradingSubmitted = isSecondGradingSubmitted,
+
                         ThirdGrading = thirdGrading,
-                        FourthGrading = fourthGrading
+                        IsThirdGradingSubmitted = isThirdGradingSubmitted,
+
+                        FourthGrading = fourthGrading,
+                        IsFourthGradingSubmitted = isFourthGradingSubmitted,
                     };
 
                     studentGrades.Add(itemToAdd);
