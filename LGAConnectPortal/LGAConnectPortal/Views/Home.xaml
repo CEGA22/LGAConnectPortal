@@ -270,7 +270,7 @@
                         </Grid>
                     </Frame>
 
-                    <Frame
+                    <!--<Frame
                         Grid.Row="3"
                         Grid.Column="0"
                         Margin="10,5,10,5"
@@ -307,7 +307,7 @@
                                 </Label.GestureRecognizers>
                             </Label>
                         </Grid>
-                    </Frame>
+                    </Frame>-->
                 </Grid>
 
             </StackLayout>

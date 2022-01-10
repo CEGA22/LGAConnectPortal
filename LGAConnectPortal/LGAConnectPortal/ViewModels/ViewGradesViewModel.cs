@@ -114,6 +114,7 @@ namespace LGAConnectPortal.ViewModels
             {
                 var SubjectName = subjects.First(x => x.ID == subject).SubjectName;
                 var quarterGrades = studentGradesList.Where(x => x.SubjectName == subject).OrderBy(o => o.GradingPeriod);
+                var finalgradeslist = finalgrades.Where(x => x.SubjectName == SubjectName).Distinct();
 
                 if (quarterGrades.Any())
                 {
@@ -121,6 +122,8 @@ namespace LGAConnectPortal.ViewModels
                     var secondGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 2).QuarterlyGrade;
                     var thirdGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 3).QuarterlyGrade;
                     var fourthGrading = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 4).QuarterlyGrade;
+                    var finalgrade = finalgradeslist.FirstOrDefault(x => x.SubjectName.Equals(SubjectName)).finalGrade;
+                    Average = finalgradeslist.FirstOrDefault(x => x.SubjectName.Equals(SubjectName)).Average;
 
                     var isFirstGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 1).SaveDraft == 1;
                     var isSecondGradingSubmitted = quarterGrades.FirstOrDefault(x => x.GradingPeriod == 2).SaveDraft == 1;
@@ -142,6 +145,8 @@ namespace LGAConnectPortal.ViewModels
 
                         FourthGrading = fourthGrading,
                         IsFourthGradingSubmitted = isFourthGradingSubmitted,
+
+                        FinalGrade = finalgrade,
                     };
 
                     studentGrades.Add(itemToAdd);

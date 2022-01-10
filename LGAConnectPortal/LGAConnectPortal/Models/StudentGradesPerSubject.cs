@@ -47,5 +47,10 @@ namespace LGAConnectPortal.Models
         { 
             get => !IsFirstGradingSubmitted && !IsSecondGradingSubmitted && !IsThirdGradingSubmitted && !IsFourthGradingSubmitted;
         }
+
+        public bool FinalGradeAvaiable 
+        { 
+            get => IsFirstGradingSubmitted && IsSecondGradingSubmitted && IsThirdGradingSubmitted && IsFourthGradingSubmitted;
+        }
     }
 }

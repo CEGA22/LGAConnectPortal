@@ -28,12 +28,12 @@
                         Text="Your Grades" />
 
                     <Frame
-                        IsVisible="{Binding ShowAverage}"
                         Grid.Row="1"
                         Margin="15,20,15,0"
                         CornerRadius="10"
                         HasShadow="True"
-                        HeightRequest="20">
+                        HeightRequest="20"
+                        IsVisible="{Binding ShowAverage}">
                         <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
                             <Label
                                 x:Name="FinalGrade"
@@ -96,22 +96,32 @@
                                                                 Margin="15,10,20,0"
                                                                 FontFamily="MM"
                                                                 FontSize="14"
+                                                                IsVisible="False"
                                                                 Text="{Binding FinalGrade}"
                                                                 TextColor="{StaticResource Black}">
                                                                 <Label.Triggers>
                                                                     <DataTrigger
-                                                                        Binding="{Binding NoGradesAvailable}"
+                                                                        Binding="{Binding FinalGradeAvaiable}"
                                                                         TargetType="Label"
                                                                         Value="True">
-                                                                        <Setter Property="IsVisible" Value="False" />
+                                                                        <Setter Property="IsVisible" Value="True" />
                                                                     </DataTrigger>
 
-                                                                    <DataTrigger
+                                                                    <!--<DataTrigger
                                                                         Binding="{Binding FinalGrade}"
                                                                         TargetType="Label"
                                                                         Value="0">
                                                                         <Setter Property="IsVisible" Value="False" />
-                                                                    </DataTrigger>
+                                                                    </DataTrigger>-->
+
+                                                                    <!--<MultiTrigger TargetType="Label">
+                                                                        <MultiTrigger.Conditions>
+                                                                            <BindingCondition Binding="{Binding NoGradesAvailable}" Value="True" />
+                                                                            <BindingCondition Binding="{Binding FinalGrade}" Value="0" />
+                                                                        </MultiTrigger.Conditions>
+                                                                        <Setter Property="IsVisible" Value="False" />
+
+                                                                    </MultiTrigger>-->
 
                                                                 </Label.Triggers>
                                                             </Label>
