@@ -11,7 +11,7 @@ namespace LGAConnectPortal.Gateway
 {
     public class FinalGradeGateway
     {
-        static string BaseUrl = "http://cegagabrang-001-site1.btempurl.com/api/lga/finalgradestudent";
+        static string BaseUrl = "http://cega07-001-site1.gtempurl.com/api/lga/finalgradestudent";
 
         public async Task<IEnumerable<FinalGrade>> GetStudentGradesByID(int ID)
         {

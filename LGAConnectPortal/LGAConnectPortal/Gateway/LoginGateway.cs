@@ -9,7 +9,7 @@ namespace LGAConnectPortal.Gateway
 {
     public class LoginGateway
     {
-        static string BaseUrl = "http://cegagabrang-001-site1.btempurl.com/api/lga/account/studentlogin";
+        static string BaseUrl = "http://cega07-001-site1.gtempurl.com/api/lga/account/studentlogin";
        
 
         public async Task<string>StudentAccountLogin(StudentLoginRequest studentrequest)
