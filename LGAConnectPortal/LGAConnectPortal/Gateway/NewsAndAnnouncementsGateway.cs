@@ -11,7 +11,7 @@ namespace LGAConnectPortal.Gateway
 {
     public class NewsAndAnnouncementsGateway
     {
-        static string BaseUrl = "http://cega07-001-site1.gtempurl.com/api/lga/newsAndAnnouncements";
+        static string BaseUrl = "http://cega22-001-site1.ftempurl.com/api/lga/newsAndAnnouncements";
 
         public async Task<IEnumerable<NewsAndAnnouncements>> GetNewsAndAnnouncements()
         {

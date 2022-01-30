@@ -11,7 +11,7 @@ namespace LGAConnectPortal.Gateway
 {
     public class AbouGateway
     {
-        static string BaseUrl = "http://cega07-001-site1.gtempurl.com//api/lga/about";
+        static string BaseUrl = "http://cega22-001-site1.ftempurl.com/api/lga/about";
 
         public async Task<IEnumerable<About>> GetAbout()
         {

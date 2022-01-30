@@ -11,7 +11,7 @@ namespace LGAConnectPortal.Gateway
 {
     public class SubjectGateway
     {
-        static string BaseUrl = "http://cega07-001-site1.gtempurl.com/api/lga/subjects";
+        static string BaseUrl = "http://cega22-001-site1.ftempurl.com/api/lga/subjects";
 
         public async Task<IEnumerable<Subjects>> GetSubjects()
         {
