@@ -1,3 +1,2 @@
-# LGAConnectPortal
-LGA Connect Portal Capstone Project
-LGA CONNECT | LADDER OF GEMS ACADEMY SCHOOL OPERATIONS MANAGEMENT SYSTEM WITH STUDENT PORTAL APPLICATION  A Capstone Project Proposal  Presented to the Faculty of the  Information and Communications Technology Program STI College Ortigas-Cainta   Binasoy, Andrei M. Gabrang, Ceejay A.  Geneblazo, Fatima Fate M. Sierra, Patricia Keih N.
+# LGA Connect Portal
+LGA Connect allows students to view their grades, class schedule, keep track of their tuition balances, get the latest news from their school, and many more anytime anywhere using their mobile phones. | Built in Xamarin.forms
